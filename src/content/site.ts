@@ -1,13 +1,41 @@
 // Central business details. Everything customer-facing that is likely to change
 // (numbers, addresses, stats) lives here so it can be edited in one place.
 
+const FALLBACK_URL = "https://www.aapkaloan.com";
+
+/**
+ * Absolute site URL used for canonical links, sitemap and social cards.
+ * Must always be a valid absolute URL — `new URL()` in the root layout throws
+ * otherwise, which fails the build. An env var that is set but empty (easy to do
+ * in a hosting dashboard) would slip past `??`, so check for a usable value.
+ */
+function resolveSiteUrl(): string {
+  const candidates = [
+    process.env.NEXT_PUBLIC_SITE_URL,
+    // Set automatically by Vercel; the second is the per-deployment URL.
+    process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL,
+    process.env.NEXT_PUBLIC_VERCEL_URL,
+  ];
+  for (const raw of candidates) {
+    const value = raw?.trim();
+    if (!value) continue;
+    const withScheme = /^https?:\/\//i.test(value) ? value : `https://${value}`;
+    try {
+      return new URL(withScheme).origin;
+    } catch {
+      // ignore an unusable value and try the next candidate
+    }
+  }
+  return FALLBACK_URL;
+}
+
 export const site = {
   name: "AapKaLoan",
   legalName: "AapKaLoan",
   tagline: "Your financial advisory & funding partner",
   description:
     "AapKaLoan is a financial advisory and funding partner that helps individuals, MSMEs, schools and growing businesses raise the right capital — across 100+ banks, NBFCs and private funding channels.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.aapkaloan.com",
+  url: resolveSiteUrl(),
   since: 2010,
 
   phone: {
