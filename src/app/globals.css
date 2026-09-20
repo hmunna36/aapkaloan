@@ -1,0 +1,187 @@
+@import "tailwindcss";
+
+/* ------------------------------------------------------------------
+   AapKaLoan design tokens
+   Evolves the existing bronze/gold brand into a quieter, private-advisory
+   palette: warm espresso ink, brass accents, ivory paper.
+------------------------------------------------------------------- */
+@theme static {
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
+
+  /* Warm near-blacks, tinted toward the logo's chocolate brown */
+  --color-ink-950: #150e0a;
+  --color-ink-900: #1f1510;
+  --color-ink-800: #2d2019;
+  --color-ink-700: #43342a;
+  --color-ink-600: #5c5147;
+  --color-ink-500: #6f6358;
+  --color-ink-400: #9c9084;
+  --color-ink-300: #c4b9ad;
+
+  --color-ivory: #fbf8f3;
+  --color-sand-50: #f7f2ea;
+  --color-sand-100: #f1e9dc;
+  --color-sand-200: #e6dac7;
+  --color-sand-300: #d6c5aa;
+
+  /* Brand scale built from the logo: gold #CA903F (500) and brown #5C2A11 (800) */
+  --color-bronze-800: #5c2a11;
+  --color-bronze-700: #85531f;
+  --color-bronze-600: #a36c2b;
+  --color-bronze-500: #ca903f;
+  --color-bronze-400: #d7a55c;
+  --color-bronze-300: #e4bf85;
+  --color-bronze-200: #f0dab5;
+  --color-bronze-100: #f8eddb;
+
+  --color-moss-800: #174438;
+  --color-moss-700: #1f5a4c;
+  --color-moss-500: #2f7d69;
+  --color-moss-100: #dcebe5;
+
+  --color-rose-700: #9b3b2e;
+  --color-rose-100: #f6e1dc;
+
+  --color-wa: #25d366;
+  --color-wa-ink: #073b1f;
+
+  --shadow-card: 0 1px 0 rgb(20 16 13 / 0.04), 0 12px 32px -18px rgb(20 16 13 / 0.18);
+  --shadow-lift: 0 1px 0 rgb(20 16 13 / 0.04), 0 24px 48px -24px rgb(20 16 13 / 0.28);
+
+  --animate-rise: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6.5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background: var(--color-ivory);
+    color: var(--color-ink-900);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection { background: var(--color-bronze-200); color: var(--color-ink-950); }
+  :focus-visible { outline: 2px solid var(--color-bronze-500); outline-offset: 3px; border-radius: 6px; }
+  h1, h2, h3, h4 { text-wrap: balance; }
+  p { text-wrap: pretty; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+}
+
+@layer components {
+  .container-x { width: 100%; max-width: 76rem; margin-inline: auto; padding-inline: 1.25rem; }
+  @media (min-width: 768px) { .container-x { padding-inline: 2rem; } }
+
+  .display { font-family: var(--font-display); font-weight: 500; letter-spacing: -0.02em; line-height: 1.04; font-variation-settings: "opsz" 144, "SOFT" 30; }
+  .heading { font-family: var(--font-display); font-weight: 500; letter-spacing: -0.015em; line-height: 1.1; font-variation-settings: "opsz" 96, "SOFT" 30; }
+
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--color-bronze-700);
+  }
+  .eyebrow::before { content: ""; width: 1.5rem; height: 1px; background: currentColor; opacity: 0.6; }
+  .eyebrow-light { color: var(--color-bronze-300); }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+    min-height: 2.875rem; padding: 0.7rem 1.25rem; border-radius: 999px;
+    font-weight: 700; font-size: 0.9rem; letter-spacing: 0.005em; white-space: nowrap;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn:disabled { opacity: 0.55; cursor: not-allowed; }
+  .btn-primary { background: var(--color-bronze-500); color: var(--color-ink-950); box-shadow: inset 0 -2px 0 rgb(0 0 0 / 0.12); }
+  .btn-primary:hover { background: var(--color-bronze-400); }
+  .btn-dark { background: var(--color-ink-900); color: var(--color-ivory); }
+  .btn-dark:hover { background: var(--color-ink-700); }
+  .btn-outline { border: 1px solid var(--color-ink-300); color: var(--color-ink-900); background: transparent; }
+  .btn-outline:hover { border-color: var(--color-ink-900); background: white; }
+  .btn-outline-light { border: 1px solid rgb(255 255 255 / 0.28); color: var(--color-ivory); }
+  .btn-outline-light:hover { border-color: var(--color-bronze-300); color: var(--color-bronze-200); }
+  .btn-wa { background: var(--color-wa); color: var(--color-wa-ink); }
+  .btn-wa:hover { background: #3be07a; }
+  .btn-sm { min-height: 2.375rem; padding: 0.5rem 1rem; font-size: 0.82rem; }
+  .btn-lg { min-height: 3.25rem; padding: 0.9rem 1.6rem; font-size: 0.95rem; }
+
+  .link-arrow { display: inline-flex; align-items: center; gap: 0.35rem; font-weight: 700; color: var(--color-bronze-700); }
+  .link-arrow:hover { color: var(--color-ink-900); }
+  .link-arrow svg { transition: transform 0.2s; }
+  .link-arrow:hover svg { transform: translate(2px, -2px); }
+
+  .card { background: white; border: 1px solid var(--color-sand-200); border-radius: 1.25rem; box-shadow: var(--shadow-card); }
+  .chip {
+    display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.3rem 0.7rem; border-radius: 999px;
+    font-size: 0.75rem; font-weight: 600; background: var(--color-sand-100); color: var(--color-ink-700);
+  }
+
+  .field-label { display: block; font-size: 0.8rem; font-weight: 700; color: var(--color-ink-800); margin-bottom: 0.4rem; }
+  .field {
+    width: 100%; min-height: 2.875rem; padding: 0.65rem 0.9rem; border-radius: 0.75rem;
+    background: white; border: 1px solid var(--color-sand-300); color: var(--color-ink-900); font-size: 0.95rem;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .field::placeholder { color: var(--color-ink-400); }
+  .field:focus { outline: none; border-color: var(--color-bronze-500); box-shadow: 0 0 0 3px rgb(202 144 63 / 0.18); }
+  .field[aria-invalid="true"] { border-color: var(--color-rose-700); }
+  select.field { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%235c5147' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 0.9rem center; padding-right: 2.25rem; }
+
+  /* hairline "ledger" grid used on dark bands */
+  .grid-lines {
+    background-image:
+      linear-gradient(to right, rgb(255 255 255 / 0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.045) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+  .grain::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0.35; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+  }
+
+  .num { font-variant-numeric: tabular-nums; }
+}
+
+/* Range sliders (EMI calculator, CIBIL gauge) */
+input[type="range"].range {
+  -webkit-appearance: none; appearance: none; width: 100%; height: 1.5rem; background: transparent; cursor: pointer;
+  --fill: 50%;
+}
+input[type="range"].range::-webkit-slider-runnable-track {
+  height: 6px; border-radius: 999px;
+  background: linear-gradient(to right, var(--color-bronze-500) var(--fill), var(--color-sand-200) var(--fill));
+}
+input[type="range"].range::-moz-range-track { height: 6px; border-radius: 999px; background: var(--color-sand-200); }
+input[type="range"].range::-moz-range-progress { height: 6px; border-radius: 999px; background: var(--color-bronze-500); }
+input[type="range"].range::-webkit-slider-thumb {
+  -webkit-appearance: none; width: 22px; height: 22px; margin-top: -8px; border-radius: 999px;
+  background: white; border: 2px solid var(--color-bronze-600); box-shadow: 0 2px 6px rgb(20 16 13 / 0.2);
+}
+input[type="range"].range::-moz-range-thumb {
+  width: 18px; height: 18px; border-radius: 999px; background: white; border: 2px solid var(--color-bronze-600);
+}
+
+/* Native <dialog> used for the consultation modal */
+dialog.modal { padding: 0; border: 0; background: transparent; max-width: 100vw; max-height: 100dvh; }
+dialog.modal::backdrop { background: rgb(20 16 13 / 0.55); backdrop-filter: blur(3px); }
+dialog.modal[open] > div { animation: var(--animate-rise); }
+
+/* Leaflet map skin */
+.leaflet-container { font-family: var(--font-sans); background: var(--color-sand-100); }
+.map-tones .leaflet-tile-pane { filter: grayscale(1) sepia(0.18) contrast(0.92) brightness(1.04); }
+.leaflet-popup-content-wrapper { border-radius: 14px; box-shadow: var(--shadow-lift); }
+.leaflet-popup-content { margin: 14px 16px; }
+.leaflet-control-attribution { font-size: 10px; }
