@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Calculator, ClipboardList, Gauge, ShieldAlert, type LucideIcon } from "lucide-react";
+import { TOOL_EVENT } from "./ToolLink";
 import { RequirementFinder } from "./RequirementFinder";
 import { EmiCalculator } from "./EmiCalculator";
 import { CibilCheck } from "./CibilCheck";
@@ -20,16 +21,26 @@ export function ToolsHub() {
   const rootRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const sync = () => {
-      const m = window.location.hash.match(/^#tool-(\w+)/);
-      if (m && toolTabs.some((t) => t.id === m[1])) {
-        setActive(m[1]);
-        rootRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
+    const show = (id: string) => {
+      if (!toolTabs.some((t) => t.id === id)) return;
+      setActive(id);
+      rootRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
     };
-    sync();
-    window.addEventListener("hashchange", sync);
-    return () => window.removeEventListener("hashchange", sync);
+    // On load / back-forward, from the URL…
+    const fromHash = () => {
+      const m = window.location.hash.match(/^#tool-([\w-]+)/);
+      if (m) show(m[1]);
+    };
+    // …and from a ToolLink click, which the History API wouldn't announce.
+    const fromEvent = (e: Event) => show((e as CustomEvent<string>).detail);
+
+    fromHash();
+    window.addEventListener("hashchange", fromHash);
+    window.addEventListener(TOOL_EVENT, fromEvent);
+    return () => {
+      window.removeEventListener("hashchange", fromHash);
+      window.removeEventListener(TOOL_EVENT, fromEvent);
+    };
   }, []);
 
   const onKey = (e: React.KeyboardEvent, i: number) => {

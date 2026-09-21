@@ -4,6 +4,7 @@ import { stats } from "@/content/site";
 import { whatsappUrl } from "@/lib/whatsapp";
 import { WhatsAppIcon } from "@/components/ui/BrandIcons";
 import { ConsultButton } from "@/components/consultation/ConsultationProvider";
+import { ToolLink } from "@/components/tools/ToolLink";
 
 const routes = [
   { name: "Bank term loan", tag: "Lowest cost", term: "12-yr tenure", best: true },
@@ -58,13 +59,13 @@ export function Hero() {
           <div className="mt-10">
             <p className="text-xs font-bold uppercase tracking-[0.16em] text-ink-400">Quick start</p>
             <ul className="mt-3 flex flex-wrap gap-2 text-sm">
-              <QuickPill href="/#tool-cibil" icon={<Gauge className="h-4 w-4" aria-hidden="true" />}>
+              <QuickPill tool="cibil" icon={<Gauge className="h-4 w-4" aria-hidden="true" />}>
                 Check your CIBIL
               </QuickPill>
-              <QuickPill href="/#tool-emi" icon={<Calculator className="h-4 w-4" aria-hidden="true" />}>
+              <QuickPill tool="emi" icon={<Calculator className="h-4 w-4" aria-hidden="true" />}>
                 Calculate your EMI
               </QuickPill>
-              <QuickPill href="/#tool-finder" icon={<ClipboardList className="h-4 w-4" aria-hidden="true" />}>
+              <QuickPill tool="finder" icon={<ClipboardList className="h-4 w-4" aria-hidden="true" />}>
                 Tell us your requirement
               </QuickPill>
               <li>
@@ -154,16 +155,16 @@ export function Hero() {
   );
 }
 
-function QuickPill({ href, icon, children }: { href: string; icon: React.ReactNode; children: React.ReactNode }) {
+function QuickPill({ tool, icon, children }: { tool: string; icon: React.ReactNode; children: React.ReactNode }) {
   return (
     <li>
-      <Link
-        href={href}
+      <ToolLink
+        tool={tool}
         className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.04] px-3.5 py-2 font-semibold text-ink-300 transition hover:border-bronze-300 hover:text-ivory"
       >
         <span className="text-bronze-300">{icon}</span>
         {children}
-      </Link>
+      </ToolLink>
     </li>
   );
 }
