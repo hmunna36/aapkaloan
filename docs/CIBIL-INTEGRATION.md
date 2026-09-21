@@ -33,6 +33,10 @@ regulated credit institution — a bank, NBFC or another entity permitted under 
 (Regulation) Act, 2005** — or qualifying as a specified user. It brings a member ID, certificate-based
 authentication and IP whitelisting, and a longer onboarding.
 
+> A ready-to-send request covering eligibility, pricing, technical and compliance questions is in
+> **[BUREAU-ACCESS-REQUEST.md](BUREAU-ACCESS-REQUEST.md)** — fill in the placeholders and email it to two or three
+> providers. To demo the flow meanwhile, see **[DEMO-SCRIPT.md](DEMO-SCRIPT.md)**.
+
 > Ask any provider two questions before signing: *"Can a loan DSA / advisory firm use this?"* and *"Is the consumer
 > consent flow included?"* If the answer to either is no, that provider won't work for this site.
 

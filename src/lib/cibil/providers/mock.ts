@@ -11,10 +11,12 @@ const DEMO_OTP = "123456";
 
 function scoreFor(seed: string): number {
   const h = createHash("sha256").update(seed).digest();
-  // Spread 520–840, weighted toward the middle like a real population.
-  const base = ((h[0] << 8) | h[1]) / 65535;
-  const curved = (base + ((h[2] / 255) * 2 - 1) * 0.15 + 1) / 2;
-  return Math.round(520 + Math.min(1, Math.max(0, curved)) * 320);
+  // Averaging two uniform draws gives a triangular spread: the whole 300–900
+  // range stays reachable (so every band can be demoed) while clustering in the
+  // middle like a real population.
+  const u1 = ((h[0] << 8) | h[1]) / 65535;
+  const u2 = ((h[2] << 8) | h[3]) / 65535;
+  return Math.round(300 + ((u1 + u2) / 2) * 600);
 }
 
 function factorsFor(score: number): ScoreFactor[] {

@@ -32,11 +32,17 @@ export async function POST(req: Request) {
     const dob = normaliseDob(String(body.dob ?? ""));
     const mobile = normaliseMobile10(String(body.mobile ?? ""));
 
-    // Abuse limits: a bureau pull costs money, and PAN enumeration must be hard.
+    // Abuse limits: a real bureau pull costs money, and PAN enumeration must be
+    // hard. Demo mode calls nothing and costs nothing, so it gets a loose cap —
+    // otherwise running a few sample PANs in front of a client hits the limit.
     const ipKey = hashId(clientIp(req));
-    rateLimit(`ip:${ipKey}`, 10, HOUR, "Too many checks from this connection. Please try again later.");
-    rateLimit(`mob:${hashId(mobile)}`, 3, HOUR, "You've requested several checks recently. Please try again later.");
-    rateLimit(`pan:${hashId(pan)}`, 3, HOUR, "You've requested several checks recently. Please try again later.");
+    if (provider.isSample) {
+      rateLimit(`ip:${ipKey}`, 100, HOUR, "Too many checks from this connection. Please try again later.");
+    } else {
+      rateLimit(`ip:${ipKey}`, 10, HOUR, "Too many checks from this connection. Please try again later.");
+      rateLimit(`mob:${hashId(mobile)}`, 3, HOUR, "You've requested several checks recently. Please try again later.");
+      rateLimit(`pan:${hashId(pan)}`, 3, HOUR, "You've requested several checks recently. Please try again later.");
+    }
 
     const result = await provider.initiate({
       name,

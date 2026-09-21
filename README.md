@@ -62,7 +62,9 @@ Before launch, add rate limiting (e.g. Vercel WAF or Upstash) to `/api/lead`.
 aggregator drops in by editing one file. The PAN is never stored or logged, and the step between OTP send and verify
 uses an encrypted, expiring token rather than a server session. Read
 **[docs/CIBIL-INTEGRATION.md](docs/CIBIL-INTEGRATION.md)** before enabling it — it covers what bureau access to buy,
-the compliance requirements, and how to wire the provider.
+the compliance requirements, and how to wire the provider. To demo the flow before access is in place, see
+**[docs/DEMO-SCRIPT.md](docs/DEMO-SCRIPT.md)**; to request access from providers, send
+**[docs/BUREAU-ACCESS-REQUEST.md](docs/BUREAU-ACCESS-REQUEST.md)**.
 
 ## Editing content
 
