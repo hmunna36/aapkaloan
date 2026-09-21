@@ -36,12 +36,16 @@ Carried over from the current aapkaloan.com. Please confirm they are still accur
       These come from the current site's menu plus common advisory products. Remove any you don't offer.
 
 ## 5. Legal & compliance
-- [ ] Privacy Policy and Terms pages. These aren't in the brief but are recommended before collecting leads (DPDP Act, 2023).
+- [ ] Privacy Policy and Terms pages. These aren't in the brief but are recommended before collecting leads (DPDP
+      Act, 2023) and effectively **required before collecting PAN** for the live credit check.
 - [ ] Footer disclaimer wording (currently: "advisory & facilitation service, not a lender; rates indicative; not affiliated with TransUnion CIBIL")
 - [ ] Consent line on forms, and the "details are confidential" statement
 
 ## 6. Setup
 - [ ] `LEAD_WEBHOOK_URL`: the CRM or automation endpoint that should receive leads
+- [ ] **Credit bureau access for the live CIBIL check** — the flow is built, but needs an account with a bureau
+      aggregator (or a direct bureau membership). See [docs/CIBIL-INTEGRATION.md](docs/CIBIL-INTEGRATION.md).
+      Until then the site shows the CIBIL enquiry form, which is the safe default.
 - [ ] Vector logo (SVG/AI), if available
 - [ ] Production map tile provider (see README)
 

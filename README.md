@@ -35,7 +35,10 @@ instead of every product in the top menu.
 
 - **Schedule a Consultation** — one global modal (`ConsultationProvider`) opened from the header, hero, About, Leadership, product
   tabs, funding pages, footer and every tool. Any link ending in `#schedule-consultation` also opens it.
-- **CIBIL Score Enquiry** — "Do you know your CIBIL score?" with an interactive score gauge → enquiry form.
+- **CIBIL Score Enquiry** — "Do you know your CIBIL score?" with an interactive score gauge. With a bureau provider
+  configured it becomes a **live check**: consent → PAN / DOB / mobile → OTP → score, band and the factors behind it,
+  and a lead raised automatically. Off by default (shows the enquiry form instead) —
+  see **[docs/CIBIL-INTEGRATION.md](docs/CIBIL-INTEGRATION.md)**.
 - **CIBIL Rectification** — pick issues → **Chat on WhatsApp** with a pre-filled message (CIBIL issue → WhatsApp immediately).
 - **EMI Calculator** — amount / rate / tenure, presets per loan type; outputs monthly EMI, total interest, total payable,
   principal-vs-interest split and a yearly schedule; then *"Want to explore your loan options? Talk to AapKaLoan"* → Consultation / WhatsApp.
@@ -52,6 +55,14 @@ Each lead carries a `type` (`consultation`, `product-enquiry`, `requirement-find
 `emi-calculator`, `school-funding`, `contact`), the page it came from, and a reference ID shown to the visitor.
 
 Before launch, add rate limiting (e.g. Vercel WAF or Upstash) to `/api/lead`.
+
+## Credit score check
+
+`/api/cibil/initiate` and `/api/cibil/verify` run the live bureau check behind a provider adapter, so any bureau or
+aggregator drops in by editing one file. The PAN is never stored or logged, and the step between OTP send and verify
+uses an encrypted, expiring token rather than a server session. Read
+**[docs/CIBIL-INTEGRATION.md](docs/CIBIL-INTEGRATION.md)** before enabling it — it covers what bureau access to buy,
+the compliance requirements, and how to wire the provider.
 
 ## Editing content
 
