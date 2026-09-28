@@ -35,7 +35,7 @@ export default function FundingPage() {
         intro="AapKaLoan is more than a loan provider. From bank finance to venture capital and private placement, we structure and raise the capital your plans need."
         crumbs={[{ label: "Home", href: "/" }, { label: "Funding Solutions" }]}
       >
-        <p className="text-xs font-bold uppercase tracking-[0.16em] text-ink-400">Choose a funding type</p>
+        <p className="text-xs font-bold uppercase tracking-[0.16em] text-sand-300">Choose a funding type</p>
         <ul className="mt-3 flex flex-wrap gap-2">
           {fundingSolutions.map((f) => (
             <li key={f.id}>
@@ -62,7 +62,7 @@ export default function FundingPage() {
               key={f.id}
               id={f.id}
               className={`scroll-mt-28 overflow-hidden rounded-[1.5rem] ${
-                f.featured ? "grain relative bg-ink-950 text-ivory" : "card"
+                f.featured ? "grain relative bg-bronze-800 text-ivory" : "card"
               }`}
             >
               {f.featured && <div className="grid-lines absolute inset-0" aria-hidden="true" />}
@@ -71,7 +71,7 @@ export default function FundingPage() {
                   <div className="flex items-center gap-4">
                     <span
                       className={`grid h-12 w-12 place-items-center rounded-2xl ${
-                        f.featured ? "bg-bronze-500 text-ink-950" : "bg-ink-900 text-bronze-300"
+                        f.featured ? "bg-bronze-500 text-ink-950" : "bg-bronze-800 text-bronze-300"
                       }`}
                     >
                       <FundingIcon name={f.icon} className="h-6 w-6" />

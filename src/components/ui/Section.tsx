@@ -51,7 +51,7 @@ export function PageHero({
   crumbs?: { label: string; href?: string }[];
 }) {
   return (
-    <section className="grain relative overflow-hidden bg-ink-950 text-ivory">
+    <section className="grain relative overflow-hidden bg-bronze-800 text-ivory">
       <div className="grid-lines absolute inset-0 opacity-70" aria-hidden="true" />
       <div
         className="absolute -right-40 -top-40 h-[34rem] w-[34rem] rounded-full opacity-40 blur-3xl"
@@ -60,7 +60,7 @@ export function PageHero({
       />
       <div className="container-x relative pb-16 pt-32 md:pb-24 md:pt-40">
         {crumbs && (
-          <nav aria-label="Breadcrumb" className="mb-8 text-sm text-ink-400">
+          <nav aria-label="Breadcrumb" className="mb-8 text-sm text-sand-300">
             <ol className="flex flex-wrap items-center gap-2">
               {crumbs.map((c, i) => (
                 <li key={c.label} className="flex items-center gap-2">

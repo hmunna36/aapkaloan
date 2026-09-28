@@ -47,7 +47,7 @@ export default async function LoanCategoryPage({ params }: { params: Promise<Par
             View {loanCategories[other].title} <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Link>
         </div>
-        <p className="mt-6 text-sm text-ink-400">
+        <p className="mt-6 text-sm text-sand-300">
           <span className="font-bold text-ink-300">Best for:</span> {c.bestFor}
         </p>
       </PageHero>

@@ -65,7 +65,7 @@ export function EmiCalculator({ compact = false }: { compact?: boolean }) {
                 aria-pressed={preset === p.label}
                 className={`rounded-full border px-3.5 py-1.5 text-sm font-semibold transition ${
                   preset === p.label
-                    ? "border-ink-900 bg-ink-900 text-ivory"
+                    ? "border-ink-900 bg-bronze-800 text-ivory"
                     : "border-sand-300 bg-white text-ink-700 hover:border-ink-400"
                 }`}
               >
@@ -150,14 +150,14 @@ export function EmiCalculator({ compact = false }: { compact?: boolean }) {
       </div>
 
       {/* Results */}
-      <div className="grain relative flex flex-col overflow-hidden rounded-3xl bg-ink-950 p-6 text-ivory sm:p-8" aria-live="polite">
+      <div className="grain relative flex flex-col overflow-hidden rounded-3xl bg-bronze-800 p-6 text-ivory sm:p-8" aria-live="polite">
         <div className="grid-lines absolute inset-0" aria-hidden="true" />
         <div className="relative flex flex-1 flex-col">
           <div className="flex items-start justify-between gap-4">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.16em] text-bronze-300">Your monthly EMI</p>
               <p className="display num mt-2 text-[2.6rem] leading-none sm:text-6xl">{formatINR(emi)}</p>
-              <p className="mt-2 text-sm text-ink-400">for {months} months</p>
+              <p className="mt-2 text-sm text-sand-300">for {months} months</p>
             </div>
             <Donut share={principalShare} />
           </div>
@@ -175,7 +175,7 @@ export function EmiCalculator({ compact = false }: { compact?: boolean }) {
           <div className="mt-auto pt-8">
             <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
               <p className="font-bold text-ivory">Want to explore your loan options?</p>
-              <p className="mt-1 text-sm text-ink-400">Talk to AapKaLoan — we'll compare lenders to beat this rate where possible.</p>
+              <p className="mt-1 text-sm text-sand-300">Talk to AapKaLoan — we'll compare lenders to beat this rate where possible.</p>
               <div className="mt-4 flex flex-wrap gap-2">
                 <button
                   type="button"
@@ -201,7 +201,7 @@ export function EmiCalculator({ compact = false }: { compact?: boolean }) {
                 </a>
               </div>
             </div>
-            <p className="mt-3 text-[0.7rem] leading-relaxed text-ink-500">
+            <p className="mt-3 text-[0.7rem] leading-relaxed text-sand-300">
               Indicative calculation on a reducing-balance basis. Actual EMI depends on the lender's rate, fees and your profile.
             </p>
           </div>
@@ -346,7 +346,7 @@ function ScheduleBars({ schedule }: { schedule: { year: number; principal: numbe
   const max = Math.max(...schedule.map((s) => s.principal + s.interest));
   return (
     <div className="mt-7">
-      <p className="text-xs font-semibold text-ink-400">Principal vs interest paid, year by year</p>
+      <p className="text-xs font-semibold text-sand-300">Principal vs interest paid, year by year</p>
       <div className="mt-3 flex h-20 items-end gap-[3px]" aria-hidden="true">
         {schedule.map((s) => (
           <div key={s.year} className="flex flex-1 flex-col justify-end" style={{ height: `${((s.principal + s.interest) / max) * 100}%` }}>
@@ -355,7 +355,7 @@ function ScheduleBars({ schedule }: { schedule: { year: number; principal: numbe
           </div>
         ))}
       </div>
-      <div className="mt-1.5 flex justify-between text-[0.7rem] text-ink-500">
+      <div className="mt-1.5 flex justify-between text-[0.7rem] text-sand-300">
         <span>Year 1</span>
         <span>Year {schedule.length}</span>
       </div>

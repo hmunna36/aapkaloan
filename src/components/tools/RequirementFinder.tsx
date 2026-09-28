@@ -55,7 +55,7 @@ export function RequirementFinder({ tone = "light" }: { tone?: "light" | "dark" 
 
   const chip = (on: boolean) =>
     `rounded-full border px-4 py-2 text-sm font-semibold transition ${
-      on ? "border-ink-900 bg-ink-900 text-ivory" : dark ? "border-white/15 text-ink-300 hover:border-white/40" : "border-sand-300 bg-white text-ink-700 hover:border-ink-400"
+      on ? "border-ink-900 bg-bronze-800 text-ivory" : dark ? "border-white/15 text-ink-300 hover:border-white/40" : "border-sand-300 bg-white text-ink-700 hover:border-ink-400"
     }`;
 
   return (

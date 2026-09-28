@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
 import { Clock, Mail, Phone } from "lucide-react";
 import { PageHero, SectionHeading } from "@/components/ui/Section";
-import { LeadForm } from "@/components/consultation/LeadForm";
+import { EnquiryTabs } from "@/components/consultation/EnquiryTabs";
 import { Branches } from "@/components/branches/Branches";
 import { WhatsAppIcon } from "@/components/ui/BrandIcons";
 import { site } from "@/content/site";
 import { whatsappUrl } from "@/lib/whatsapp";
 
 export const metadata: Metadata = {
-  title: "Contact Us — Schedule a Consultation",
-  description: "Schedule a consultation with AapKaLoan, call, WhatsApp or visit our Bengaluru head office and Chennai regional office.",
+  title: "Contact Us — Schedule a Consultation or Partner With Us",
+  description:
+    "Schedule a consultation with AapKaLoan or apply to partner with us. Call, WhatsApp or visit our Bengaluru head office and Chennai regional office.",
   alternates: { canonical: "/contact" },
 };
 
@@ -30,24 +31,20 @@ export default function ContactPage() {
             Schedule a consultation. <span className="italic text-bronze-300">We'll take it from there.</span>
           </>
         }
-        intro="Pick a date and time, and an AapKaLoan advisor will call you to understand your requirement. Prefer to talk now? Call or WhatsApp us."
+        intro="Pick a date and time and an advisor will call you to understand your requirement — or apply to partner with us. Prefer to talk now? Call or WhatsApp us."
         crumbs={[{ label: "Home", href: "/" }, { label: "Contact Us" }]}
       />
 
       <section className="py-16 md:py-24">
         <div className="container-x grid gap-10 lg:grid-cols-[1.25fr_0.75fr] lg:gap-14">
-          <div className="card p-6 sm:p-9">
-            <h2 className="heading text-3xl text-ink-950">Book your consultation</h2>
-            <p className="mt-2 text-sm text-ink-600">It takes under a minute.</p>
-            <div className="mt-8">
-              <LeadForm type="consultation" variant="full" />
-            </div>
+          <div id="enquiry" className="card scroll-mt-28 p-6 sm:p-9">
+            <EnquiryTabs />
           </div>
           <ul className="space-y-3">
             {channels.map(({ icon: Icon, label, value, sub, href, external }) => {
               const inner = (
                 <>
-                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-ink-900 text-bronze-300">
+                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-bronze-800 text-bronze-300">
                     <Icon className="h-5 w-5" aria-hidden="true" />
                   </span>
                   <span>

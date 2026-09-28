@@ -70,7 +70,7 @@ export function ToolsHub() {
               onClick={() => setActive(t.id)}
               onKeyDown={(e) => onKey(e, i)}
               className={`flex min-w-[13.5rem] items-center gap-3 rounded-2xl border p-4 text-left transition lg:min-w-0 ${
-                on ? "border-ink-900 bg-ink-900 text-ivory shadow-[var(--shadow-lift)]" : "border-sand-200 bg-white text-ink-800 hover:border-sand-300"
+                on ? "border-ink-900 bg-bronze-800 text-ivory shadow-[var(--shadow-lift)]" : "border-sand-200 bg-white text-ink-800 hover:border-sand-300"
               }`}
             >
               <span className={`grid h-10 w-10 shrink-0 place-items-center rounded-xl ${on ? "bg-bronze-500 text-ink-950" : "bg-sand-100 text-bronze-700"}`}>

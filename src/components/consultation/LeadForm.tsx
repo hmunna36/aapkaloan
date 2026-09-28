@@ -4,11 +4,11 @@ import { usePathname } from "next/navigation";
 import { useId, useState, type FormEvent } from "react";
 import { ArrowRight, CircleCheck, LoaderCircle, ShieldCheck } from "lucide-react";
 import { requirementLabels } from "@/content/funding";
-import { amountRanges, isEmail, normaliseMobile, submitLead, timeSlots, type LeadPayload, type LeadType } from "@/lib/leads";
+import { amountRanges, isEmail, normaliseMobile, partnerTypes, submitLead, timeSlots, type LeadPayload, type LeadType } from "@/lib/leads";
 import { whatsappUrl } from "@/lib/whatsapp";
 import { WhatsAppIcon } from "@/components/ui/BrandIcons";
 
-export type LeadFormVariant = "full" | "compact" | "cibil" | "school";
+export type LeadFormVariant = "full" | "compact" | "cibil" | "school" | "partner";
 
 export const schoolPurposes = [
   "Campus construction / expansion",
@@ -92,7 +92,7 @@ export function LeadForm({
   }
 
   if (status === "done") {
-    return <LeadSuccess name={values.name} refId={refId} tone={tone} requirement={values.requirement} />;
+    return <LeadSuccess name={values.name} refId={refId} tone={tone} requirement={values.requirement} variant={variant} />;
   }
 
   const label = `field-label ${dark ? "!text-ivory" : ""}`;
@@ -128,6 +128,15 @@ export function LeadForm({
           </label>
           <input className="field" placeholder="e.g. Sunrise Public School" value={values.institution ?? ""} onChange={set("institution")} {...a11y("institution")} />
           {err("institution")}
+        </div>
+      )}
+
+      {variant === "partner" && (
+        <div className="sm:col-span-2">
+          <label htmlFor={`${uid}-organisation`} className={label}>
+            Firm / organisation <span className="font-normal opacity-60">(optional)</span>
+          </label>
+          <input className="field" placeholder="Your firm's name" value={values.organisation ?? ""} onChange={set("organisation")} {...a11y("organisation")} />
         </div>
       )}
 
@@ -204,6 +213,20 @@ export function LeadForm({
         </div>
       )}
 
+      {variant === "partner" && (
+        <div className="sm:col-span-2">
+          <label htmlFor={`${uid}-partnerType`} className={label}>
+            How would you like to partner?
+          </label>
+          <select className="field" value={values.partnerType ?? ""} onChange={set("partnerType")} {...a11y("partnerType")}>
+            <option value="">Select an option</option>
+            {partnerTypes.map((r) => (
+              <option key={r}>{r}</option>
+            ))}
+          </select>
+        </div>
+      )}
+
       {(variant === "full" || variant === "school") && (
         <div>
           <label htmlFor={`${uid}-amount`} className={label}>
@@ -243,7 +266,12 @@ export function LeadForm({
       {variant !== "compact" && (
         <div className="sm:col-span-2">
           <label htmlFor={`${uid}-message`} className={label}>
-            {variant === "cibil" ? "Anything we should know?" : "Tell us briefly about your requirement"} <span className="font-normal opacity-60">(optional)</span>
+            {variant === "cibil"
+              ? "Anything we should know?"
+              : variant === "partner"
+                ? "Tell us about your business and how you'd like to work with us"
+                : "Tell us briefly about your requirement"}{" "}
+            <span className="font-normal opacity-60">(optional)</span>
           </label>
           <textarea className="field min-h-24 resize-y" rows={3} value={values.message ?? ""} onChange={set("message")} {...a11y("message")} />
         </div>
@@ -292,11 +320,13 @@ export function LeadSuccess({
   refId,
   tone = "light",
   requirement,
+  variant = "full",
 }: {
   name: string;
   refId: string;
   tone?: "light" | "dark";
   requirement?: string;
+  variant?: LeadFormVariant;
 }) {
   const dark = tone === "dark";
   const first = name.trim().split(/\s+/)[0];
@@ -308,8 +338,9 @@ export function LeadSuccess({
       <div>
         <h3 className={`heading text-2xl ${dark ? "text-ivory" : "text-ink-950"}`}>Thank you, {first}.</h3>
         <p className={`mt-2 max-w-md leading-relaxed ${dark ? "text-ink-300" : "text-ink-600"}`}>
-          Your request has been received. An AapKaLoan advisor will call you during working hours to understand your
-          requirement.
+          {variant === "partner"
+            ? "Your enquiry has been received. Our partnerships team will call you during working hours to take it forward."
+            : "Your request has been received. An AapKaLoan advisor will call you during working hours to understand your requirement."}
         </p>
         <p className={`mt-3 text-sm ${dark ? "text-ink-400" : "text-ink-500"}`}>
           Reference: <span className="num font-bold">{refId}</span>

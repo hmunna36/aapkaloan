@@ -74,7 +74,7 @@ export default function HomePage() {
               <div className="grid grid-cols-2 border-b border-sand-200 bg-sand-50 text-xs font-bold uppercase tracking-[0.12em] sm:grid-cols-[8rem_1fr_1fr]">
                 <span className="hidden p-4 sm:block" />
                 <span className="p-4 text-ink-500 sm:border-l sm:border-sand-200">Going to a bank directly</span>
-                <span className="border-l border-sand-200 bg-ink-950 p-4 text-bronze-300">With AapKaLoan</span>
+                <span className="border-l border-sand-200 bg-bronze-800 p-4 text-bronze-300">With AapKaLoan</span>
               </div>
               <dl>
                 {comparison.map((c) => (
@@ -120,7 +120,7 @@ export default function HomePage() {
           <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             <Link
               href="/funding-solutions/school-funding"
-              className="grain group relative flex flex-col overflow-hidden rounded-[1.25rem] bg-ink-950 p-7 text-ivory md:col-span-2 lg:col-span-1 lg:row-span-3 lg:p-8"
+              className="grain group relative flex flex-col overflow-hidden rounded-[1.25rem] bg-bronze-800 p-7 text-ivory md:col-span-2 lg:col-span-1 lg:row-span-3 lg:p-8"
             >
               <div className="grid-lines absolute inset-0" aria-hidden="true" />
               <div className="relative flex flex-1 flex-col">
@@ -155,7 +155,7 @@ export default function HomePage() {
                   f.id === "other" ? "md:col-span-2" : ""
                 }`}
               >
-                <span className="grid h-11 w-11 place-items-center rounded-xl bg-sand-100 text-bronze-700 transition group-hover:bg-ink-900 group-hover:text-bronze-300">
+                <span className="grid h-11 w-11 place-items-center rounded-xl bg-sand-100 text-bronze-700 transition group-hover:bg-bronze-800 group-hover:text-bronze-300">
                   <FundingIcon name={f.icon} className="h-5 w-5" />
                 </span>
                 <h3 className="mt-5 text-lg font-extrabold text-ink-950">{f.name}</h3>
@@ -339,7 +339,7 @@ export default function HomePage() {
       </section>
 
       {/* 08 — Final CTA */}
-      <section className="grain relative overflow-hidden bg-ink-900 py-20 text-ivory md:py-28" aria-labelledby="final-cta">
+      <section className="grain relative overflow-hidden bg-bronze-800 py-20 text-ivory md:py-28" aria-labelledby="final-cta">
         <div className="grid-lines absolute inset-0" aria-hidden="true" />
         <div className="container-x relative grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
           <div>
@@ -357,7 +357,7 @@ export default function HomePage() {
                     <Phone className="h-5 w-5" aria-hidden="true" />
                   </span>
                   <span>
-                    <span className="block text-xs text-ink-400">Call us</span>
+                    <span className="block text-xs text-sand-300">Call us</span>
                     <span className="num block font-bold">{site.phone.display}</span>
                   </span>
                 </a>
@@ -368,7 +368,7 @@ export default function HomePage() {
                     <WhatsAppIcon className="h-5 w-5" />
                   </span>
                   <span>
-                    <span className="block text-xs text-ink-400">Chat on WhatsApp</span>
+                    <span className="block text-xs text-sand-300">Chat on WhatsApp</span>
                     <span className="block font-bold">Message an advisor directly</span>
                   </span>
                 </a>
@@ -379,7 +379,7 @@ export default function HomePage() {
                     <Mail className="h-5 w-5" aria-hidden="true" />
                   </span>
                   <span>
-                    <span className="block text-xs text-ink-400">Email</span>
+                    <span className="block text-xs text-sand-300">Email</span>
                     <span className="block font-bold">{site.email}</span>
                   </span>
                 </a>

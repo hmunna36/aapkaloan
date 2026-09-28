@@ -352,7 +352,7 @@ function SummaryGrid({ summary, dark }: { summary: NonNullable<ScoreResult["summ
   return (
     <dl className={`mt-5 grid grid-cols-2 gap-px overflow-hidden rounded-2xl sm:grid-cols-4 ${dark ? "bg-white/10" : "bg-sand-200"}`}>
       {items.map((i) => (
-        <div key={i.label} className={dark ? "bg-ink-950/60 p-3" : "bg-sand-50 p-3"}>
+        <div key={i.label} className={dark ? "bg-bronze-800/60 p-3" : "bg-sand-50 p-3"}>
           <dt className={`text-[0.68rem] ${dark ? "text-ink-400" : "text-ink-500"}`}>{i.label}</dt>
           <dd className={`num mt-0.5 text-xl font-extrabold ${dark ? "text-ivory" : "text-ink-950"}`}>
             {i.value}

@@ -14,7 +14,7 @@ export function Footer() {
   const tools = mainNav.find((n) => n.href === "/resources")!.children!;
 
   return (
-    <footer className="relative bg-ink-950 pb-24 text-ink-300 lg:pb-0">
+    <footer className="relative bg-bronze-800 pb-24 text-ink-300 lg:pb-0">
       <div className="container-x">
         {/* CTA strip */}
         <div className="flex flex-col items-start justify-between gap-6 border-b border-white/10 py-12 md:flex-row md:items-center">
@@ -23,7 +23,7 @@ export function Footer() {
               Have a requirement in mind?
               <span className="italic text-bronze-300"> Let's talk.</span>
             </p>
-            <p className="mt-2 text-ink-400">Speak to an advisor — we'll map the best route across banks, NBFCs and private capital.</p>
+            <p className="mt-2 text-sand-300">Speak to an advisor — we'll map the best route across banks, NBFCs and private capital.</p>
           </div>
           <div className="flex flex-wrap gap-3">
             <ConsultButton className="btn btn-primary btn-lg">Schedule a Consultation</ConsultButton>
@@ -36,7 +36,7 @@ export function Footer() {
         <div className="grid gap-12 py-14 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
             <Logo tone="light" withTagline />
-            <p className="mt-5 max-w-sm text-sm leading-relaxed text-ink-400">{site.description}</p>
+            <p className="mt-5 max-w-sm text-sm leading-relaxed text-sand-300">{site.description}</p>
             <ul className="mt-6 space-y-3 text-sm">
               <li>
                 <a href={site.phone.href} className="flex items-center gap-2.5 hover:text-bronze-300">
@@ -81,7 +81,7 @@ export function Footer() {
               <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-bronze-400" aria-hidden="true" />
               <div>
                 <p className="font-bold text-ivory">{b.name}</p>
-                <p className="mt-1 leading-relaxed text-ink-400">{b.address}</p>
+                <p className="mt-1 leading-relaxed text-sand-300">{b.address}</p>
                 <Link href="/contact#branches" className="mt-2 inline-flex items-center gap-1 text-bronze-300 hover:text-bronze-200">
                   View on map <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
                 </Link>
@@ -90,7 +90,7 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="border-t border-white/10 py-8 text-xs leading-relaxed text-ink-400">
+        <div className="border-t border-white/10 py-8 text-xs leading-relaxed text-sand-300">
           <p>
             AapKaLoan is a financial advisory and loan facilitation service. We are not a lender. All loans and funding are
             subject to the credit policies, eligibility criteria and final approval of the respective bank, NBFC or investor.

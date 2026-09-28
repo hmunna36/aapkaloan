@@ -2,6 +2,7 @@
 
 export const leadTypes = [
   "consultation",
+  "partner",
   "product-enquiry",
   "requirement-finder",
   "cibil-check",
@@ -26,6 +27,10 @@ export type LeadPayload = {
   preferredDate?: string;
   preferredTime?: string;
   institution?: string;
+  /** Partner enquiries: the firm the partner represents. */
+  organisation?: string;
+  /** Partner enquiries: how they want to work with us. */
+  partnerType?: string;
   message?: string;
   consent: boolean;
   /** Honeypot — real users never fill this. */
@@ -42,6 +47,17 @@ export const amountRanges = [
 ];
 
 export const timeSlots = ["10 AM – 12 PM", "12 PM – 3 PM", "3 PM – 6 PM"];
+
+// TODO (content): confirm the partner categories AapKaLoan actually onboards.
+export const partnerTypes = [
+  "Referral partner / connector",
+  "DSA or loan agent",
+  "Chartered accountant or consultant",
+  "Builder / real-estate channel",
+  "Bank, NBFC or investor",
+  "School, trust or institution",
+  "Other",
+];
 
 /** Normalises Indian mobile numbers to 10 digits; returns null if invalid. */
 export function normaliseMobile(input: string): string | null {

@@ -98,14 +98,14 @@ export function CibilRectification({ tone = "light" }: { tone?: "light" | "dark"
           <li key={s.t} className="flex gap-4">
             <span
               className={`num grid h-9 w-9 shrink-0 place-items-center rounded-full text-sm font-bold ${
-                dark ? "bg-bronze-400 text-ink-950" : "bg-ink-900 text-ivory"
+                dark ? "bg-bronze-400 text-ink-950" : "bg-bronze-800 text-ivory"
               }`}
             >
               {i + 1}
             </span>
             <div>
               <p className={`font-bold ${dark ? "text-ivory" : "text-ink-900"}`}>{s.t}</p>
-              <p className={`mt-0.5 text-sm ${dark ? "text-ink-400" : "text-ink-600"}`}>{s.d}</p>
+              <p className={`mt-0.5 text-sm ${dark ? "text-sand-300" : "text-ink-600"}`}>{s.d}</p>
             </div>
           </li>
         ))}

@@ -53,7 +53,7 @@ export function ProductTabs({ category }: { category: LoanCategory }) {
                 onClick={() => select(p.slug)}
                 onKeyDown={(e) => onKey(e, i)}
                 className={`shrink-0 whitespace-nowrap px-4 py-3.5 text-sm font-bold transition md:flex-1 md:rounded-xl md:py-3 ${
-                  on ? "border-b-2 border-bronze-500 text-ink-950 md:border-0 md:bg-ink-900 md:text-ivory" : "text-ink-500 hover:text-ink-900"
+                  on ? "border-b-2 border-bronze-500 text-ink-950 md:border-0 md:bg-bronze-800 md:text-ivory" : "text-ink-500 hover:text-ink-900"
                 }`}
               >
                 {p.name}
@@ -134,12 +134,12 @@ function ProductDetail({ product }: { product: LoanProduct }) {
         <InfoBlock icon={Lightbulb} title="Typical use cases" items={product.useCases} />
       </div>
 
-      <div className="mt-10 flex flex-col items-start justify-between gap-6 rounded-[1.25rem] bg-ink-950 p-7 text-ivory md:flex-row md:items-center md:p-9">
+      <div className="mt-10 flex flex-col items-start justify-between gap-6 rounded-[1.25rem] bg-bronze-800 p-7 text-ivory md:flex-row md:items-center md:p-9">
         <div className="flex gap-4">
           <MessageSquare className="mt-1 h-6 w-6 shrink-0 text-bronze-300" aria-hidden="true" />
           <div>
             <p className="heading text-2xl">Not sure {product.name.toLowerCase().startsWith("other") ? "which product fits" : `if ${product.name} is right for you`}?</p>
-            <p className="mt-1 text-ink-400">Speak to an advisor — we'll compare options across lenders before you apply anywhere.</p>
+            <p className="mt-1 text-sand-300">Speak to an advisor — we'll compare options across lenders before you apply anywhere.</p>
           </div>
         </div>
         <button type="button" onClick={() => open({ requirement })} className="btn btn-primary shrink-0">

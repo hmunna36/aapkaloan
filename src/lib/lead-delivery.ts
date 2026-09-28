@@ -18,6 +18,8 @@ export type DeliverableLead = {
   preferredDate?: string;
   preferredTime?: string;
   institution?: string;
+  organisation?: string;
+  partnerType?: string;
   message?: string;
   consent: true;
 };

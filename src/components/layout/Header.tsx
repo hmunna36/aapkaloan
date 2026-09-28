@@ -40,7 +40,7 @@ export function Header() {
     <header className="fixed inset-x-0 top-0 z-50">
       {/* utility bar */}
       <div
-        className={`hidden overflow-hidden bg-ink-950 text-[0.78rem] text-ink-300 transition-all duration-300 lg:block ${
+        className={`hidden overflow-hidden bg-bronze-800 text-[0.78rem] text-ink-300 transition-all duration-300 lg:block ${
           scrolled ? "max-h-0 opacity-0" : "max-h-10 opacity-100"
         }`}
       >

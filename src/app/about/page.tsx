@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Briefcase, Building2, Check, Compass, GraduationCap, House, Rocket, Target, Users } from "lucide-react";
+import { ArrowRight, Briefcase, Building2, Compass, GraduationCap, House, Rocket, Target, Users } from "lucide-react";
 import { PageHero, SectionHeading } from "@/components/ui/Section";
 import { LinkedInButton } from "@/components/team/LeaderCard";
 import { ConsultButton } from "@/components/consultation/ConsultationProvider";
@@ -9,7 +9,7 @@ import { mission, site, stats, vision } from "@/content/site";
 import { expertiseAreas, team } from "@/content/team";
 
 export const metadata: Metadata = {
-  title: "About Us — Vision, Mission & Leadership",
+  title: "About Us — Our Leadership, Vision & Mission",
   description:
     "Who AapKaLoan is, what we do and the leadership team behind it — experience across banking, NBFC, VC funding and private placement.",
   alternates: { canonical: "/about" },
@@ -22,15 +22,6 @@ const segments = [
   { icon: GraduationCap, title: "Schools & educational trusts", text: "Infrastructure, transport and working capital." },
   { icon: Rocket, title: "Startups & growth companies", text: "Venture capital and structured growth capital." },
   { icon: Users, title: "Promoters & property owners", text: "LAP, lease rental discounting, private placement." },
-];
-
-const expertise = [
-  "Loan structuring across secured and unsecured products",
-  "Working-capital assessment and CMA preparation",
-  "Venture capital and investment-readiness advisory",
-  "Private placement of debt and equity",
-  "Credit-report review and CIBIL rectification support",
-  "Refinancing and debt consolidation",
 ];
 
 const process = [
@@ -62,103 +53,26 @@ export default function AboutPage() {
         </div>
       </PageHero>
 
-      {/* Company introduction */}
-      <section className="py-20 md:py-28">
-        <div className="container-x grid gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
+      {/* Company — one short paragraph; the page belongs to the leadership */}
+      <section className="py-16 md:py-20">
+        <div className="container-x grid items-center gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
           <div>
             <p className="eyebrow">Who we are</p>
-            <h2 className="heading mt-4 text-4xl text-ink-950 md:text-5xl">
-              Built to put the borrower <span className="italic text-bronze-600">first.</span>
-            </h2>
-            <div className="mt-6 space-y-5 text-lg leading-relaxed text-ink-600">
-              <p>
-                AapKaLoan is a financial advisory and funding partner headquartered in Bengaluru, with a regional office in
-                Chennai. We work with 100+ banks, NBFCs and private capital providers — which means we can recommend what is
-                genuinely right for you, not just what one institution happens to sell.
-              </p>
-              <p>
-                <strong className="font-bold text-ink-900">What we do:</strong> we assess your requirement, structure the
-                funding, prepare a strong application, approach the best-fit lenders or investors, negotiate terms, and
-                support you all the way to disbursement.
-              </p>
-              <p>
-                <strong className="font-bold text-ink-900">Why it matters:</strong> a well-structured application in front of
-                the right lender is approved faster, on better terms — and avoids the rejections that can damage your credit
-                score.
-              </p>
-            </div>
+            <p className="mt-5 text-lg leading-relaxed text-ink-700 md:text-xl">
+              AapKaLoan is a financial advisory and funding partner headquartered in Bengaluru, with a regional office in
+              Chennai. We work with 100+ banks, NBFCs and private capital providers, so we can recommend what is genuinely
+              right for you — then structure the funding, prepare a strong application, negotiate the terms and stay with
+              you until disbursement.
+            </p>
           </div>
-          <div className="relative">
-            <div className="card p-7 sm:p-9 lg:sticky lg:top-32">
-              <p className="text-xs font-bold uppercase tracking-[0.16em] text-bronze-700">Core expertise</p>
-              <ul className="mt-5 space-y-3.5">
-                {expertise.map((e) => (
-                  <li key={e} className="flex gap-3 text-ink-800">
-                    <Check className="mt-1 h-4 w-4 shrink-0 text-moss-500" aria-hidden="true" />
-                    {e}
-                  </li>
-                ))}
-              </ul>
-              <dl className="mt-8 grid grid-cols-2 gap-px overflow-hidden rounded-2xl bg-sand-200">
-                {stats.map((s) => (
-                  <div key={s.label} className="bg-sand-50 p-4">
-                    <dt className="text-xs text-ink-500">{s.label}</dt>
-                    <dd className="display num mt-1 text-3xl text-ink-950">{s.value}</dd>
-                  </div>
-                ))}
-              </dl>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Customer segments */}
-      <section className="border-y border-sand-200 bg-sand-50 py-20 md:py-28">
-        <div className="container-x">
-          <SectionHeading eyebrow="Who we serve" title="Customer segments we work with" intro="Different borrowers need different lenders. Our breadth of relationships lets us serve each segment well." />
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {segments.map(({ icon: Icon, title, text }) => (
-              <div key={title} className="card p-6">
-                <span className="grid h-11 w-11 place-items-center rounded-xl bg-sand-100 text-bronze-700">
-                  <Icon className="h-5 w-5" aria-hidden="true" />
-                </span>
-                <h3 className="mt-5 text-lg font-extrabold text-ink-950">{title}</h3>
-                <p className="mt-1.5 text-sm text-ink-600">{text}</p>
+          <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl bg-sand-200">
+            {stats.map((s) => (
+              <div key={s.label} className="bg-sand-50 p-5">
+                <dt className="text-xs text-ink-500">{s.label}</dt>
+                <dd className="display num mt-1 text-3xl text-ink-950">{s.value}</dd>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Vision & mission */}
-      <section className="py-20 md:py-28">
-        <div className="container-x grid gap-4 lg:grid-cols-2">
-          <article className="grain relative overflow-hidden rounded-[1.75rem] bg-ink-950 p-8 text-ivory md:p-12">
-            <div className="grid-lines absolute inset-0" aria-hidden="true" />
-            <div className="relative">
-              <Compass className="h-8 w-8 text-bronze-300" aria-hidden="true" />
-              <p className="eyebrow eyebrow-light mt-8">Our vision</p>
-              <p className="heading mt-4 text-2xl leading-snug md:text-[1.9rem]">{vision}</p>
-            </div>
-          </article>
-          <article className="rounded-[1.75rem] bg-bronze-100 p-8 md:p-12">
-            <Target className="h-8 w-8 text-bronze-700" aria-hidden="true" />
-            <p className="eyebrow mt-8">Our mission</p>
-            <p className="heading mt-4 text-2xl leading-snug text-ink-950 md:text-[1.9rem]">{mission}</p>
-          </article>
-        </div>
-
-        <div className="container-x mt-20">
-          <SectionHeading eyebrow="Our approach" title="How we work with every client" />
-          <ol className="mt-10 grid gap-px overflow-hidden rounded-[1.25rem] border border-sand-200 bg-sand-200 md:grid-cols-5">
-            {process.map((p, i) => (
-              <li key={p.t} className="bg-white p-6">
-                <span className="display num text-3xl text-bronze-500">{String(i + 1).padStart(2, "0")}</span>
-                <h3 className="mt-4 font-extrabold text-ink-950">{p.t}</h3>
-                <p className="mt-1.5 text-sm leading-relaxed text-ink-600">{p.d}</p>
-              </li>
-            ))}
-          </ol>
+          </dl>
         </div>
       </section>
 
@@ -195,7 +109,7 @@ export default function AboutPage() {
                       <h3 className="heading text-3xl text-ink-950">{l.name}</h3>
                       <p className="mt-1 font-semibold text-bronze-700">{l.designation}</p>
                     </div>
-                    <div className="rounded-2xl bg-ink-950 px-5 py-3 text-center text-ivory">
+                    <div className="rounded-2xl bg-bronze-800 px-5 py-3 text-center text-ivory">
                       <p className="display num text-3xl text-bronze-300">{l.experienceYears}</p>
                       <p className="text-[0.68rem] font-bold uppercase tracking-[0.14em] text-ink-300">Years experience</p>
                     </div>
@@ -205,7 +119,7 @@ export default function AboutPage() {
                     <p className="text-xs font-bold uppercase tracking-[0.14em] text-ink-500">Experience across</p>
                     <ul className="mt-3 flex flex-wrap gap-2">
                       {l.expertise.map((a) => (
-                        <li key={a} className="rounded-full bg-ink-900 px-3 py-1.5 text-xs font-bold text-bronze-200">
+                        <li key={a} className="rounded-full bg-bronze-800 px-3 py-1.5 text-xs font-bold text-bronze-200">
                           {a}
                         </li>
                       ))}
@@ -216,7 +130,7 @@ export default function AboutPage() {
                   )}
                   <div className="mt-auto flex flex-wrap gap-3 pt-7">
                     <LinkedInButton leader={l} />
-                    <ConsultButton className="btn btn-primary btn-sm" preset={{ title: `Schedule a consultation`, message: `I'd like to speak with ${l.name}.` }}>
+                    <ConsultButton className="btn btn-primary btn-sm" preset={{ message: `I'd like to speak with ${l.name}.` }}>
                       Book a consultation <ArrowRight className="h-4 w-4" aria-hidden="true" />
                     </ConsultButton>
                   </div>
@@ -224,6 +138,56 @@ export default function AboutPage() {
               </article>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Customer segments */}
+      <section className="border-t border-sand-200 py-20 md:py-28">
+        <div className="container-x">
+          <SectionHeading eyebrow="Who we serve" title="Customer segments we work with" intro="Different borrowers need different lenders. Our breadth of relationships lets us serve each segment well." />
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {segments.map(({ icon: Icon, title, text }) => (
+              <div key={title} className="card p-6">
+                <span className="grid h-11 w-11 place-items-center rounded-xl bg-sand-100 text-bronze-700">
+                  <Icon className="h-5 w-5" aria-hidden="true" />
+                </span>
+                <h3 className="mt-5 text-lg font-extrabold text-ink-950">{title}</h3>
+                <p className="mt-1.5 text-sm text-ink-600">{text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Vision & mission */}
+      <section className="border-t border-sand-200 bg-sand-50 py-20 md:py-28">
+        <div className="container-x grid gap-4 lg:grid-cols-2">
+          <article className="grain relative overflow-hidden rounded-[1.75rem] bg-bronze-800 p-8 text-ivory md:p-12">
+            <div className="grid-lines absolute inset-0" aria-hidden="true" />
+            <div className="relative">
+              <Compass className="h-8 w-8 text-bronze-300" aria-hidden="true" />
+              <p className="eyebrow eyebrow-light mt-8">Our vision</p>
+              <p className="heading mt-4 text-2xl leading-snug md:text-[1.9rem]">{vision}</p>
+            </div>
+          </article>
+          <article className="rounded-[1.75rem] bg-bronze-100 p-8 md:p-12">
+            <Target className="h-8 w-8 text-bronze-700" aria-hidden="true" />
+            <p className="eyebrow mt-8">Our mission</p>
+            <p className="heading mt-4 text-2xl leading-snug text-ink-950 md:text-[1.9rem]">{mission}</p>
+          </article>
+        </div>
+
+        <div className="container-x mt-20">
+          <SectionHeading eyebrow="Our approach" title="How we work with every client" />
+          <ol className="mt-10 grid gap-px overflow-hidden rounded-[1.25rem] border border-sand-200 bg-sand-200 md:grid-cols-5">
+            {process.map((p, i) => (
+              <li key={p.t} className="bg-white p-6">
+                <span className="display num text-3xl text-bronze-500">{String(i + 1).padStart(2, "0")}</span>
+                <h3 className="mt-4 font-extrabold text-ink-950">{p.t}</h3>
+                <p className="mt-1.5 text-sm leading-relaxed text-ink-600">{p.d}</p>
+              </li>
+            ))}
+          </ol>
         </div>
       </section>
     </>

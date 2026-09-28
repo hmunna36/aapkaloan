@@ -2,8 +2,9 @@
 
 /* ------------------------------------------------------------------
    AapKaLoan design tokens
-   Evolves the existing bronze/gold brand into a quieter, private-advisory
-   palette: warm espresso ink, brass accents, ivory paper.
+   Straight from the logo: golden brown #CA903F and brown #5C2A11 on ivory.
+   Dark surfaces use the logo brown (bronze-800), never a neutral black; the
+   ink scale is for type only.
 ------------------------------------------------------------------- */
 @theme static {
   --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
@@ -107,8 +108,8 @@
   .btn:disabled { opacity: 0.55; cursor: not-allowed; }
   .btn-primary { background: var(--color-bronze-500); color: var(--color-ink-950); box-shadow: inset 0 -2px 0 rgb(0 0 0 / 0.12); }
   .btn-primary:hover { background: var(--color-bronze-400); }
-  .btn-dark { background: var(--color-ink-900); color: var(--color-ivory); }
-  .btn-dark:hover { background: var(--color-ink-700); }
+  .btn-dark { background: var(--color-bronze-800); color: var(--color-ivory); }
+  .btn-dark:hover { background: var(--color-bronze-700); }
   .btn-outline { border: 1px solid var(--color-ink-300); color: var(--color-ink-900); background: transparent; }
   .btn-outline:hover { border-color: var(--color-ink-900); background: white; }
   .btn-outline-light { border: 1px solid rgb(255 255 255 / 0.28); color: var(--color-ivory); }
@@ -176,7 +177,7 @@ input[type="range"].range::-moz-range-thumb {
 
 /* Native <dialog> used for the consultation modal */
 dialog.modal { padding: 0; border: 0; background: transparent; max-width: 100vw; max-height: 100dvh; }
-dialog.modal::backdrop { background: rgb(20 16 13 / 0.55); backdrop-filter: blur(3px); }
+dialog.modal::backdrop { background: rgb(60 27 11 / 0.55); backdrop-filter: blur(3px); }
 dialog.modal[open] > div { animation: var(--animate-rise); }
 
 /* Leaflet map skin */
@@ -185,3 +186,9 @@ dialog.modal[open] > div { animation: var(--animate-rise); }
 .leaflet-popup-content-wrapper { border-radius: 14px; box-shadow: var(--shadow-lift); }
 .leaflet-popup-content { margin: 14px 16px; }
 .leaflet-control-attribution { font-size: 10px; }
+
+/* Hero slider: progress bar on the active dot while autoplay runs */
+@keyframes hero-progress {
+  from { width: 0%; }
+  to { width: 100%; }
+}

@@ -30,7 +30,7 @@ export function LeaderCard({ leader, priority = false }: { leader: Leader; prior
           sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
           className="object-cover object-top transition duration-700 group-hover:scale-[1.03]"
         />
-        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-ink-950/70 to-transparent" aria-hidden="true" />
+        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-bronze-800/70 to-transparent" aria-hidden="true" />
         <p className="absolute bottom-4 left-4 rounded-full bg-ivory/95 px-3 py-1 text-xs font-bold text-ink-900 backdrop-blur">
           <span className="num">{leader.experienceYears}</span> yrs experience
         </p>

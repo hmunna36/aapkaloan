@@ -4,7 +4,8 @@ The brief left some fields blank, and some content was carried over from the cur
 **placeholder or assumed**. Please confirm or replace it.
 
 ## 1. Leadership (`src/content/team.ts`) — highest priority
-The brief's table (Name / Designation / LinkedIn / Experience / Message) was empty.
+The brief's table (Name / Designation / LinkedIn / Experience / Message) was empty. The client's update list (item 5)
+says names and photos should match "the table below", but the table was cut off the screenshot we received.
 - [ ] **Photo ↔ name mapping.** Photos were matched to names in the order they appear in the brief:
   grey suit (bald) → **Raghu**, glasses / navy blazer → **Suresh**, grey blazer (smiling) → **Nagarajan**, black suit → **Pradeep**.
 - [ ] Designation for each (currently "Leadership Team")
@@ -51,3 +52,17 @@ Carried over from the current aapkaloan.com. Please confirm they are still accur
 
 > Note: the WhatsApp link on the current live site (`wa.me/9900092109`) is missing the country code and may not open a chat.
 > The new site uses `wa.me/919900092109`.
+
+## 7. Client update list — waiting on files
+- [ ] **Leadership Posters** — the home slides should follow them. The slides are built; the copy in
+      `src/content/heroSlides.ts` is a placeholder from the existing site. Add each poster as that slide's `image`.
+- [ ] **Logo PDF** — the client asked for the logo from their PDF, with the same background wherever it appears.
+      The site still uses the cut-out PNGs in `public/brand`.
+- [ ] **Leaders table** — names and photos to be matched (see section 1).
+
+## 8. New copy to approve
+- [ ] "Partner with us" tab — heading, intro and the three benefit points (`src/components/consultation/EnquiryTabs.tsx`,
+      `ConsultationProvider.tsx`). We have not promised any commercial terms.
+- [ ] Partner categories in the dropdown (`partnerTypes` in `src/lib/leads.ts`) — remove any AapKaLoan doesn't onboard.
+- [ ] Home slide trigger questions (`src/content/heroSlides.ts`).
+- [ ] About Us company paragraph (`src/app/about/page.tsx`) — merged from the three paragraphs that were there before.

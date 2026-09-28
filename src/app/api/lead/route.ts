@@ -44,6 +44,8 @@ export async function POST(req: Request) {
     preferredDate: clip(body.preferredDate, 20),
     preferredTime: clip(body.preferredTime, 40),
     institution: clip(body.institution, 160),
+    organisation: clip(body.organisation, 160),
+    partnerType: clip(body.partnerType, 60),
     message: clip(body.message, 2000),
     consent: true,
   });

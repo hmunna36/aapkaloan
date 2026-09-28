@@ -54,7 +54,7 @@ export default function LoansPage() {
             return (
               <article key={key} className="card flex flex-col p-7 md:p-9">
                 <div className="flex items-center justify-between">
-                  <span className="grid h-12 w-12 place-items-center rounded-2xl bg-ink-900 text-bronze-300">
+                  <span className="grid h-12 w-12 place-items-center rounded-2xl bg-bronze-800 text-bronze-300">
                     <Icon className="h-6 w-6" aria-hidden="true" />
                   </span>
                   <span className="text-[0.7rem] font-bold uppercase tracking-[0.16em] text-bronze-700">{c.kicker}</span>

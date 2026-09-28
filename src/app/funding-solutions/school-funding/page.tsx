@@ -125,7 +125,7 @@ export default function SchoolFundingPage() {
           <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {beneficiaries.map(({ icon: Icon, t, d }) => (
               <div key={t} className="card p-6">
-                <span className="grid h-11 w-11 place-items-center rounded-xl bg-ink-900 text-bronze-300">
+                <span className="grid h-11 w-11 place-items-center rounded-xl bg-bronze-800 text-bronze-300">
                   <Icon className="h-5 w-5" aria-hidden="true" />
                 </span>
                 <h3 className="mt-5 text-lg font-extrabold text-ink-950">{t}</h3>
@@ -173,7 +173,7 @@ export default function SchoolFundingPage() {
       </section>
 
       {/* AapKaLoan's role */}
-      <section className="grain relative overflow-hidden bg-ink-950 py-20 text-ivory md:py-28">
+      <section className="grain relative overflow-hidden bg-bronze-800 py-20 text-ivory md:py-28">
         <div className="grid-lines absolute inset-0" aria-hidden="true" />
         <div className="container-x relative">
           <SectionHeading index="04" eyebrow="AapKaLoan's role" tone="dark" title="What we do for your institution" />
