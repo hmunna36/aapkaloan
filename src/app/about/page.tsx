@@ -115,8 +115,34 @@ export default function AboutPage() {
                     </div>
                   </div>
                   <p className="mt-5 max-w-2xl leading-relaxed text-ink-600">{l.bio}</p>
+                  {(l.previously || l.education) && (
+                    <dl className="mt-5 max-w-2xl space-y-1.5 text-sm leading-relaxed text-ink-600">
+                      {l.previously && (
+                        <div>
+                          <dt className="inline font-bold text-ink-800">Previously: </dt>
+                          <dd className="inline">{l.previously}</dd>
+                        </div>
+                      )}
+                      {l.education && (
+                        <div>
+                          <dt className="inline font-bold text-ink-800">Education: </dt>
+                          <dd className="inline">{l.education}</dd>
+                        </div>
+                      )}
+                    </dl>
+                  )}
+                  {l.highlights && (
+                    <ul className="mt-5 flex flex-wrap gap-3" aria-label="Track record">
+                      {l.highlights.map((h) => (
+                        <li key={h.label} className="rounded-xl border border-sand-200 bg-sand-50 px-4 py-2.5">
+                          <span className="display num block text-2xl text-ink-950">{h.value}</span>
+                          <span className="block text-xs text-ink-500">{h.label}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                   <div className="mt-6">
-                    <p className="text-xs font-bold uppercase tracking-[0.14em] text-ink-500">Experience across</p>
+                    <p className="text-xs font-bold uppercase tracking-[0.14em] text-ink-500">Areas of expertise</p>
                     <ul className="mt-3 flex flex-wrap gap-2">
                       {l.expertise.map((a) => (
                         <li key={a} className="rounded-full bg-bronze-800 px-3 py-1.5 text-xs font-bold text-bronze-200">

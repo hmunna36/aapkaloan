@@ -3,17 +3,13 @@
 The brief left some fields blank, and some content was carried over from the current site. Everything below is
 **placeholder or assumed**. Please confirm or replace it.
 
-## 1. Leadership (`src/content/team.ts`) — highest priority
-The brief's table (Name / Designation / LinkedIn / Experience / Message) was empty. The client's update list (item 5)
-says names and photos should match "the table below", but the table was cut off the screenshot we received.
-- [ ] **Photo ↔ name mapping.** Photos were matched to names in the order they appear in the brief:
-  grey suit (bald) → **Raghu**, glasses / navy blazer → **Suresh**, grey blazer (smiling) → **Nagarajan**, black suit → **Pradeep**.
-- [ ] Designation for each (currently "Leadership Team")
-- [ ] Years of experience (currently "XX+")
-- [ ] 2–3 line professional bio (currently placeholder text)
-- [ ] Expertise tags: Banking / NBFC / VC Funding / Private Placement / Financial Services (the current tags are guesses)
-- [ ] LinkedIn profile URL (the button stays inactive until one is added)
-- [ ] Optional personal message / quote (the brief's "Message" column)
+## 1. Leadership (`src/content/team.ts`)
+Updated on 2026-09-28 from the client's leadership table: five leaders, with names, designations, photos and LinkedIn
+links exactly as in the table, and bios condensed from their LinkedIn write-ups.
+- [ ] **Nagarajan V** — the table has no LinkedIn link, write-up or message. His bio is built from the table's
+      "20 years + banking experience; Loans | Property Loan | MSME Loan Expert". No LinkedIn button shows until a link is added.
+- [ ] Sita Rama Raju V's education is listed as "BA, MBA, (LLB)" in the table and shown as "BA, MBA (LLB)". Confirm
+      whether the LLB is completed.
 
 ## 2. Business facts (`src/content/site.ts`)
 Carried over from the current aapkaloan.com. Please confirm they are still accurate:
@@ -58,7 +54,6 @@ Carried over from the current aapkaloan.com. Please confirm they are still accur
       `src/content/heroSlides.ts` is a placeholder from the existing site. Add each poster as that slide's `image`.
 - [ ] **Logo PDF** — the client asked for the logo from their PDF, with the same background wherever it appears.
       The site still uses the cut-out PNGs in `public/brand`.
-- [ ] **Leaders table** — names and photos to be matched (see section 1).
 
 ## 8. New copy to approve
 - [ ] "Partner with us" tab — heading, intro and the three benefit points (`src/components/consultation/EnquiryTabs.tsx`,
