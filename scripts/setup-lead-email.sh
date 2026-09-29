@@ -19,12 +19,25 @@ command -v vercel >/dev/null || { echo "The Vercel CLI isn't installed (npm i -g
 vercel whoami >/dev/null 2>&1 || { echo "Log in to Vercel first: vercel login"; exit 1; }
 [ -d node_modules/nodemailer ] || { echo "Run npm install first."; exit 1; }
 
-read -r -p "Mailbox that sends the enquiries [info@aapkaloan.com]: " SMTP_USER
-SMTP_USER=${SMTP_USER:-info@aapkaloan.com}
+is_email() { [[ $1 =~ ^[^[:space:]@]+@[^[:space:]@]+\.[^[:space:]@]+$ ]]; }
+
+# Only the password is secret — this first question shows what you type.
+while :; do
+  read -r -p "Mailbox that sends the enquiries — press Enter for info@aapkaloan.com: " SMTP_USER
+  SMTP_USER=$(printf '%s' "${SMTP_USER:-info@aapkaloan.com}" | tr -d '[:space:]')
+  is_email "$SMTP_USER" && break
+  echo "  That isn't an email address. (Don't type the password here — it's the next question.)"
+done
 read -r -s -p "Password for $SMTP_USER (typing is hidden): " SMTP_PASS; echo
 [ -n "$SMTP_PASS" ] || { echo "No password entered — nothing changed."; exit 1; }
-read -r -p "Send enquiries to (several: separate with commas) [$SMTP_USER]: " LEAD_EMAIL_TO
-LEAD_EMAIL_TO=${LEAD_EMAIL_TO:-$SMTP_USER}
+while :; do
+  read -r -p "Email address(es) that receive enquiries, comma-separated — press Enter for $SMTP_USER: " LEAD_EMAIL_TO
+  LEAD_EMAIL_TO=$(printf '%s' "${LEAD_EMAIL_TO:-$SMTP_USER}" | tr -d '[:space:]')
+  ok=1; IFS=',' read -r -a addrs <<< "$LEAD_EMAIL_TO"
+  for a in "${addrs[@]}"; do is_email "$a" || ok=0; done
+  [ $ok -eq 1 ] && [ ${#addrs[@]} -gt 0 ] && break
+  echo "  Please enter email address(es), e.g. info@aapkaloan.com"
+done
 export SMTP_USER SMTP_PASS SMTP_PORT
 
 # Check the login before changing anything. GoDaddy has regional outgoing servers,
@@ -45,7 +58,7 @@ for host in smtpout.secureserver.net smtpout.asia.secureserver.net smtpout.europ
   echo "$result"
   if [[ $result == EAUTH* ]]; then
     echo; echo "GoDaddy rejected the password for $SMTP_USER. Nothing was changed on Vercel."
-    echo "Check the password (it's the one used for webmail at email.aapkaloan.com) and run this again."
+    echo "Check it by logging in at https://email.secureserver.net (GoDaddy webmail), then run this again."
     exit 1
   fi
 done
