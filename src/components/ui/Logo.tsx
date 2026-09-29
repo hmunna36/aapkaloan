@@ -1,41 +1,45 @@
 import Image from "next/image";
 import Link from "next/link";
 
-// Official Aapka Loan logo, cut from the brand artwork into transparent PNGs
-// (public/brand). "-light" variants swap the brown for ivory for dark backgrounds.
-// Sizes keep the artwork's own proportions: the tagline sits at ~40% of the
-// wordmark's height, exactly as in the original lockup.
+// Official AapkaLoan Financial Services logo (client artwork, 29 Sep), cut into
+// mark / name / tagline PNGs in public/brand. The client asked for the logo to
+// sit on white everywhere so its colours never change, so it always renders on
+// a white plate — there is no recoloured version for dark backgrounds.
+// Sizes keep the artwork's own proportions: tagline height is 0.6 × the name's,
+// centred under it as in the original lockup.
 
-export function Logo({
-  tone = "dark",
-  withTagline = true,
-  className = "",
-}: {
-  tone?: "dark" | "light";
-  withTagline?: boolean;
-  className?: string;
-}) {
-  const v = tone === "light" ? "-light" : "";
+export function Logo({ withTagline = true, className = "" }: { withTagline?: boolean; className?: string }) {
   return (
-    <Link href="/" className={`group inline-flex items-center gap-2.5 ${className}`} aria-label="Aapka Loan — Gain economic growth — home">
+    <Link
+      href="/"
+      className={`group inline-flex shrink-0 items-center gap-2 rounded-xl bg-white px-2.5 py-1.5 shadow-[0_1px_3px_rgb(0_0_0/0.08)] sm:gap-2.5 sm:px-3 sm:py-2 ${className}`}
+      aria-label="AapkaLoan Financial Services — Gain economic growth — home"
+    >
       <Image
-        src={`/brand/logo-mark${v}.png`}
+        src="/brand/logo-mark.png"
         alt=""
-        width={59}
-        height={44}
+        width={45}
+        height={36}
         priority
-        className="h-10 w-auto shrink-0 transition-transform duration-300 group-hover:-translate-y-0.5 sm:h-11"
+        className="h-[30px] w-auto shrink-0 transition-transform duration-300 group-hover:-translate-y-0.5 sm:h-9"
       />
-      {/* width/height = rendered size, so next/image serves small files */}
-      <span className="flex flex-col gap-[5px]">
-        <Image src={`/brand/logo-wordmark${v}.png`} alt="Aapka Loan" width={147} height={18} priority className="h-4 w-auto sm:h-[18px]" />
+      {/* width/height = largest rendered size, so next/image serves small files */}
+      <span className="flex flex-col items-center gap-[4px] sm:gap-[5px]">
+        <Image
+          src="/brand/logo-name.png"
+          alt="AapkaLoan Financial Services"
+          width={238}
+          height={10.5}
+          priority
+          className="h-[9px] w-auto sm:h-[10.5px]"
+        />
         {withTagline && (
           <Image
-            src={`/brand/logo-tagline${v}.png`}
+            src="/brand/logo-tagline.png"
             alt="Gain economic growth"
-            width={133}
-            height={8}
-            className="h-[6.5px] w-auto opacity-90 sm:h-[7.5px]"
+            width={132}
+            height={6.3}
+            className="hidden h-[6.3px] w-auto sm:block"
           />
         )}
       </span>

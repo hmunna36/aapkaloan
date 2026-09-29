@@ -40,7 +40,7 @@ export function Header() {
     <header className="fixed inset-x-0 top-0 z-50">
       {/* utility bar */}
       <div
-        className={`hidden overflow-hidden bg-bronze-800 text-[0.78rem] text-ink-300 transition-all duration-300 lg:block ${
+        className={`hidden overflow-hidden bg-bronze-800 text-[0.78rem] text-ink-300 transition-all duration-300 xl:block ${
           scrolled ? "max-h-0 opacity-0" : "max-h-10 opacity-100"
         }`}
       >
@@ -69,16 +69,16 @@ export function Header() {
         }`}
       >
         <div className="container-x flex h-[4.5rem] items-center justify-between gap-6">
-          <Logo tone={solid ? "dark" : "light"} />
+          <Logo />
 
-          <nav aria-label="Main" className="hidden lg:block">
+          <nav aria-label="Main" className="hidden xl:block">
             <ul className="flex items-center gap-1">
               {mainNav.map((item) => (
                 <li key={item.href} className="group relative">
                   <Link
                     href={item.href}
                     aria-current={isActive(item.href) ? "page" : undefined}
-                    className={`flex items-center gap-1 rounded-full px-3.5 py-2 text-[0.9rem] font-semibold transition-colors ${
+                    className={`flex items-center gap-1 whitespace-nowrap rounded-full px-3 py-2 text-[0.9rem] font-semibold transition-colors ${
                       solid ? "text-ink-700 hover:text-ink-950" : "text-ink-300 hover:text-ivory"
                     } ${isActive(item.href) ? (solid ? "!text-ink-950" : "!text-ivory") : ""}`}
                   >
@@ -114,7 +114,7 @@ export function Header() {
             <button
               type="button"
               onClick={() => setMobileOpen((o) => !o)}
-              className={`grid h-11 w-11 place-items-center rounded-full border lg:hidden ${
+              className={`grid h-11 w-11 place-items-center rounded-full border xl:hidden ${
                 solid ? "border-sand-300 text-ink-900" : "border-white/20 text-ivory"
               }`}
               aria-expanded={mobileOpen}
@@ -130,7 +130,7 @@ export function Header() {
       {/* mobile drawer */}
       <div
         id="mobile-nav"
-        className={`fixed inset-x-0 bottom-0 top-[4.5rem] overflow-y-auto bg-ivory transition-all duration-300 lg:hidden ${
+        className={`fixed inset-x-0 bottom-0 top-[4.5rem] overflow-y-auto bg-ivory transition-all duration-300 xl:hidden ${
           mobileOpen ? "visible opacity-100" : "invisible -translate-y-2 opacity-0"
         }`}
       >

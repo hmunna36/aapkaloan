@@ -35,7 +35,7 @@ export function Footer() {
 
         <div className="grid gap-12 py-14 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
-            <Logo tone="light" withTagline />
+            <Logo />
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-sand-300">{site.description}</p>
             <ul className="mt-6 space-y-3 text-sm">
               <li>

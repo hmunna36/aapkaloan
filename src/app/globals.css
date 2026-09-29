@@ -2,9 +2,9 @@
 
 /* ------------------------------------------------------------------
    AapKaLoan design tokens
-   Straight from the logo: golden brown #CA903F and brown #5C2A11 on ivory.
-   Dark surfaces use the logo brown (bronze-800), never a neutral black; the
-   ink scale is for type only.
+   From the logo: golden brown #CA903F and the logo's lettering brown #6F461C
+   on ivory. Dark surfaces use that brown (bronze-800), never a neutral black;
+   the ink scale is for type only.
 ------------------------------------------------------------------- */
 @theme static {
   --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
@@ -18,7 +18,7 @@
   --color-ink-600: #5c5147;
   --color-ink-500: #6f6358;
   --color-ink-400: #9c9084;
-  --color-ink-300: #c4b9ad;
+  --color-ink-300: #cdc3b8; /* body text on the logo brown: 4.7:1 */
 
   --color-ivory: #fbf8f3;
   --color-sand-50: #f7f2ea;
@@ -26,8 +26,8 @@
   --color-sand-200: #e6dac7;
   --color-sand-300: #d6c5aa;
 
-  /* Brand scale built from the logo: gold #CA903F (500) and brown #5C2A11 (800) */
-  --color-bronze-800: #5c2a11;
+  /* Brand scale from the logo: gold #CA903F (500); brown (800) is the updated logo's lettering, #6F461C */
+  --color-bronze-800: #6f461c;
   --color-bronze-700: #85531f;
   --color-bronze-600: #a36c2b;
   --color-bronze-500: #ca903f;
@@ -177,7 +177,7 @@ input[type="range"].range::-moz-range-thumb {
 
 /* Native <dialog> used for the consultation modal */
 dialog.modal { padding: 0; border: 0; background: transparent; max-width: 100vw; max-height: 100dvh; }
-dialog.modal::backdrop { background: rgb(60 27 11 / 0.55); backdrop-filter: blur(3px); }
+dialog.modal::backdrop { background: rgb(70 44 18 / 0.55); backdrop-filter: blur(3px); }
 dialog.modal[open] > div { animation: var(--animate-rise); }
 
 /* Leaflet map skin */

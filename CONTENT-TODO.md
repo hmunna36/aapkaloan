@@ -43,7 +43,7 @@ Carried over from the current aapkaloan.com. Please confirm they are still accur
 - [ ] **Credit bureau access for the live CIBIL check** — the flow is built, but needs an account with a bureau
       aggregator (or a direct bureau membership). See [docs/CIBIL-INTEGRATION.md](docs/CIBIL-INTEGRATION.md).
       Until then the site shows the CIBIL enquiry form, which is the safe default.
-- [ ] Vector logo (SVG/AI), if available
+- [ ] Vector logo (SVG/AI), if available — the updated logo (29 Sep) came as a 9000px PNG inside a PDF, which is sharp enough for the web
 - [ ] Production map tile provider (see README)
 
 > Note: the WhatsApp link on the current live site (`wa.me/9900092109`) is missing the country code and may not open a chat.
@@ -52,8 +52,6 @@ Carried over from the current aapkaloan.com. Please confirm they are still accur
 ## 7. Client update list — waiting on files
 - [ ] **Leadership Posters** — the home slides should follow them. The slides are built; the copy in
       `src/content/heroSlides.ts` is a placeholder from the existing site. Add each poster as that slide's `image`.
-- [ ] **Logo PDF** — the client asked for the logo from their PDF, with the same background wherever it appears.
-      The site still uses the cut-out PNGs in `public/brand`.
 
 ## 8. New copy to approve
 - [ ] "Partner with us" tab — heading, intro and the three benefit points (`src/components/consultation/EnquiryTabs.tsx`,
