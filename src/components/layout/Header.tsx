@@ -40,7 +40,7 @@ export function Header() {
     <header className="fixed inset-x-0 top-0 z-50">
       {/* utility bar */}
       <div
-        className={`hidden overflow-hidden bg-bronze-800 text-[0.78rem] text-ink-300 transition-all duration-300 xl:block ${
+        className={`surface-tan hidden overflow-hidden text-[0.78rem] text-ink-300 transition-all duration-300 xl:block ${
           scrolled ? "max-h-0 opacity-0" : "max-h-10 opacity-100"
         }`}
       >
@@ -65,7 +65,7 @@ export function Header() {
 
       <div
         className={`transition-colors duration-300 ${
-          solid ? "border-b border-sand-200 bg-ivory/92 shadow-[0_8px_30px_-20px_rgb(20_16_13/0.35)] backdrop-blur-md" : "bg-transparent"
+          solid ? "border-b border-sand-200 bg-ivory/92 shadow-[0_8px_30px_-20px_rgb(20_16_13/0.35)] backdrop-blur-md" : "on-tan bg-transparent"
         }`}
       >
         <div className="container-x flex h-[4.5rem] items-center justify-between gap-6">
@@ -85,12 +85,12 @@ export function Header() {
                     {item.label}
                     {item.children && <ChevronDown className="h-3.5 w-3.5 opacity-60 transition-transform group-hover:rotate-180" aria-hidden="true" />}
                     {isActive(item.href) && (
-                      <span className="absolute inset-x-3.5 -bottom-0.5 h-px bg-bronze-500" aria-hidden="true" />
+                      <span className={`absolute inset-x-3.5 -bottom-0.5 h-px ${solid ? "bg-bronze-500" : "bg-bronze-800"}`} aria-hidden="true" />
                     )}
                   </Link>
                   {item.children && (
                     <div className="invisible absolute left-1/2 top-full z-10 w-[22rem] -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
-                      <ul className="card overflow-hidden p-2 shadow-[var(--shadow-lift)]">
+                      <ul className="card surface-light overflow-hidden p-2 shadow-[var(--shadow-lift)]">
                         {item.children.map((c) => (
                           <li key={c.href}>
                             <Link href={c.href} className="block rounded-xl px-4 py-3 transition hover:bg-sand-50 focus-visible:bg-sand-50">

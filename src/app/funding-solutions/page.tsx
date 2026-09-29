@@ -62,7 +62,7 @@ export default function FundingPage() {
               key={f.id}
               id={f.id}
               className={`scroll-mt-28 overflow-hidden rounded-[1.5rem] ${
-                f.featured ? "grain relative bg-bronze-800 text-ivory" : "card"
+                f.featured ? "grain surface-tan relative text-ivory" : "card"
               }`}
             >
               {f.featured && <div className="grid-lines absolute inset-0" aria-hidden="true" />}

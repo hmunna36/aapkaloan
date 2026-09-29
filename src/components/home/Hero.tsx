@@ -24,7 +24,7 @@ const statCell = [
 
 export function Hero() {
   return (
-    <section className="grain relative overflow-hidden bg-bronze-800 text-ivory">
+    <section className="grain surface-tan relative overflow-hidden text-ivory">
       <div className="grid-lines absolute inset-0 [mask-image:linear-gradient(to_bottom,black,transparent_85%)]" aria-hidden="true" />
       <div
         className="absolute -left-40 top-10 h-[40rem] w-[40rem] rounded-full opacity-35 blur-3xl"
@@ -62,7 +62,7 @@ function MatchCard() {
   return (
     <>
       <div className="absolute -inset-6 rounded-[2.5rem] bg-gradient-to-br from-bronze-500/15 to-transparent blur-2xl" aria-hidden="true" />
-      <figure className="relative rounded-[1.75rem] bg-ivory p-6 text-ink-900 shadow-2xl sm:p-7">
+      <figure className="surface-light relative rounded-[1.75rem] bg-ivory p-6 text-ink-900 shadow-2xl sm:p-7">
         <div className="flex items-center justify-between">
           <p className="text-[0.7rem] font-bold uppercase tracking-[0.16em] text-bronze-700">Your requirement</p>
           <span className="rounded-full bg-sand-100 px-2.5 py-1 text-[0.68rem] font-semibold text-ink-500">Illustrative</span>
@@ -133,7 +133,7 @@ function QuickStart() {
             href={whatsappUrl("Hi AapKaLoan, I have an issue with my CIBIL report and need help.")}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border border-wa/40 bg-wa/10 px-3.5 py-2 font-semibold text-[#9ff0bd] transition hover:bg-wa/20"
+            className="inline-flex items-center gap-2 rounded-full border border-wa/40 bg-wa/10 px-3.5 py-2 font-semibold text-wa-ink transition hover:bg-wa/20"
           >
             <WhatsAppIcon className="h-4 w-4" /> CIBIL issue? WhatsApp us
           </a>

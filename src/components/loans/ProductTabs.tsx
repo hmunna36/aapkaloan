@@ -134,7 +134,7 @@ function ProductDetail({ product }: { product: LoanProduct }) {
         <InfoBlock icon={Lightbulb} title="Typical use cases" items={product.useCases} />
       </div>
 
-      <div className="mt-10 flex flex-col items-start justify-between gap-6 rounded-[1.25rem] bg-bronze-800 p-7 text-ivory md:flex-row md:items-center md:p-9">
+      <div className="mt-10 flex flex-col items-start justify-between gap-6 rounded-[1.25rem] surface-tan p-7 text-ivory md:flex-row md:items-center md:p-9">
         <div className="flex gap-4">
           <MessageSquare className="mt-1 h-6 w-6 shrink-0 text-bronze-300" aria-hidden="true" />
           <div>

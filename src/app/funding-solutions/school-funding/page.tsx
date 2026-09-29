@@ -173,7 +173,7 @@ export default function SchoolFundingPage() {
       </section>
 
       {/* AapKaLoan's role */}
-      <section className="grain relative overflow-hidden bg-bronze-800 py-20 text-ivory md:py-28">
+      <section className="grain surface-tan relative overflow-hidden py-20 text-ivory md:py-28">
         <div className="grid-lines absolute inset-0" aria-hidden="true" />
         <div className="container-x relative">
           <SectionHeading index="04" eyebrow="AapKaLoan's role" tone="dark" title="What we do for your institution" />

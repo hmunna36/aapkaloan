@@ -51,7 +51,7 @@ export function PageHero({
   crumbs?: { label: string; href?: string }[];
 }) {
   return (
-    <section className="grain relative overflow-hidden bg-bronze-800 text-ivory">
+    <section className="grain surface-tan relative overflow-hidden text-ivory">
       <div className="grid-lines absolute inset-0 opacity-70" aria-hidden="true" />
       <div
         className="absolute -right-40 -top-40 h-[34rem] w-[34rem] rounded-full opacity-40 blur-3xl"

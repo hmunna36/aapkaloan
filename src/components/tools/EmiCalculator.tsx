@@ -150,7 +150,7 @@ export function EmiCalculator({ compact = false }: { compact?: boolean }) {
       </div>
 
       {/* Results */}
-      <div className="grain relative flex flex-col overflow-hidden rounded-3xl bg-bronze-800 p-6 text-ivory sm:p-8" aria-live="polite">
+      <div className="grain surface-tan relative flex flex-col overflow-hidden rounded-3xl p-6 text-ivory sm:p-8" aria-live="polite">
         <div className="grid-lines absolute inset-0" aria-hidden="true" />
         <div className="relative flex flex-1 flex-col">
           <div className="flex items-start justify-between gap-4">

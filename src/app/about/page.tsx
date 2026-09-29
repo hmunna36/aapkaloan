@@ -188,7 +188,7 @@ export default function AboutPage() {
       {/* Vision & mission */}
       <section className="border-t border-sand-200 bg-sand-50 py-20 md:py-28">
         <div className="container-x grid gap-4 lg:grid-cols-2">
-          <article className="grain relative overflow-hidden rounded-[1.75rem] bg-bronze-800 p-8 text-ivory md:p-12">
+          <article className="grain surface-tan relative overflow-hidden rounded-[1.75rem] p-8 text-ivory md:p-12">
             <div className="grid-lines absolute inset-0" aria-hidden="true" />
             <div className="relative">
               <Compass className="h-8 w-8 text-bronze-300" aria-hidden="true" />

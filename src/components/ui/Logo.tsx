@@ -12,7 +12,7 @@ export function Logo({ withTagline = true, className = "" }: { withTagline?: boo
   return (
     <Link
       href="/"
-      className={`group inline-flex shrink-0 items-center gap-2 rounded-xl bg-white px-2.5 py-1.5 shadow-[0_1px_3px_rgb(0_0_0/0.08)] sm:gap-2.5 sm:px-3 sm:py-2 ${className}`}
+      className={`group inline-flex shrink-0 items-center gap-2 rounded-xl bg-[#fff] px-2.5 py-1.5 shadow-[0_1px_3px_rgb(0_0_0/0.08)] sm:gap-2.5 sm:px-3 sm:py-2 ${className}`}
       aria-label="AapkaLoan Financial Services — Gain economic growth — home"
     >
       <Image

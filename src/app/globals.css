@@ -2,9 +2,10 @@
 
 /* ------------------------------------------------------------------
    AapKaLoan design tokens
-   From the logo: golden brown #CA903F and the logo's lettering brown #6F461C
-   on ivory. Dark surfaces use that brown (bronze-800), never a neutral black;
-   the ink scale is for type only.
+   From the logo: its arrow tan #D9B185 for the big background areas
+   (.surface-tan, below), its lettering brown #6F461C (bronze-800) for buttons,
+   chips and small dark elements, golden brown #CA903F for accents, on ivory.
+   The ink scale is for type only.
 ------------------------------------------------------------------- */
 @theme static {
   --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
@@ -35,6 +36,9 @@
   --color-bronze-300: #e4bf85;
   --color-bronze-200: #f0dab5;
   --color-bronze-100: #f8eddb;
+
+  /* The arrow in the logo: the colour of the large background areas (hero, footer, bands) */
+  --color-tan: #d9b185;
 
   --color-moss-800: #174438;
   --color-moss-700: #1f5a4c;
@@ -154,6 +158,58 @@
   }
 
   .num { font-variant-numeric: tabular-nums; }
+}
+
+/* ------------------------------------------------------------------
+   Tan surfaces — the big background areas use the logo's arrow colour,
+   #D9B185. Components on these areas were written for a dark surface
+   (text-ivory, text-ink-300, white hairlines, …), so inside .surface-tan
+   (background + remap) or .on-tan (remap only, e.g. the see-through
+   header over the hero) those colour tokens are re-pointed at dark browns
+   and the same markup reads on tan. Every pair here is ≥4.5:1 on tan.
+   Light panels nested inside opt back out with .surface-light, whose
+   values must match @theme above.
+------------------------------------------------------------------- */
+@layer components {
+  .surface-tan { background-color: var(--color-tan); }
+  .surface-tan,
+  .on-tan {
+    --color-ivory: #1f1510;      /* headings and strong text: 9.0:1 */
+    --color-white: #1f1510;      /* white/xx hairlines and tints become dark/xx */
+    --color-ink-300: #3b2a1c;    /* body copy: 6.4:1 */
+    --color-ink-400: #4a3522;    /* muted text: 5.4:1 */
+    --color-ink-500: #4a3522;
+    --color-sand-200: #4a3522;
+    --color-sand-300: #4a3522;
+    --color-bronze-200: #5a3514; /* accents and eyebrows: 4.9:1 */
+    --color-bronze-300: #5a3514;
+  }
+  .surface-light {
+    --color-ivory: #fbf8f3;
+    --color-white: #fff;
+    --color-ink-300: #cdc3b8;
+    --color-ink-400: #9c9084;
+    --color-ink-500: #6f6358;
+    --color-sand-200: #e6dac7;
+    --color-sand-300: #d6c5aa;
+    --color-bronze-200: #f0dab5;
+    --color-bronze-300: #e4bf85;
+  }
+
+  /* Gold buttons disappear on tan: use the logo brown instead. */
+  :is(.surface-tan, .on-tan) .btn-primary { background: var(--color-bronze-800); color: #fff; }
+  :is(.surface-tan, .on-tan) .btn-primary:hover { background: var(--color-bronze-700); }
+  :is(.surface-tan, .on-tan) .btn-outline-light { border-color: rgb(31 21 16 / 0.35); }
+  :is(.surface-tan, .on-tan) :focus-visible { outline-color: var(--color-bronze-800); }
+  .surface-tan .grid-lines {
+    background-image:
+      linear-gradient(to right, rgb(31 21 16 / 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(31 21 16 / 0.05) 1px, transparent 1px);
+  }
+  /* …and back to normal inside a light panel */
+  :is(.surface-tan, .on-tan) .surface-light .btn-primary { background: var(--color-bronze-500); color: var(--color-ink-950); }
+  :is(.surface-tan, .on-tan) .surface-light .btn-primary:hover { background: var(--color-bronze-400); }
+  :is(.surface-tan, .on-tan) .surface-light :focus-visible { outline-color: var(--color-bronze-500); }
 }
 
 /* Range sliders (EMI calculator, CIBIL gauge) */

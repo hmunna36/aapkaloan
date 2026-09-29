@@ -97,7 +97,7 @@ export function ConsultationProvider({ children }: { children: ReactNode }) {
         onClick={(e) => e.target === dialogRef.current && close()}
       >
         <div className="relative grid max-h-[calc(100dvh-1.5rem)] w-[min(calc(100vw-1.5rem),58rem)] overflow-y-auto rounded-[1.75rem] bg-ivory shadow-2xl md:grid-cols-[18rem_1fr]">
-          <aside className="grain relative hidden overflow-hidden bg-bronze-800 p-8 text-ivory md:block">
+          <aside className="grain surface-tan relative hidden overflow-hidden p-8 text-ivory md:block">
             <div className="grid-lines absolute inset-0" aria-hidden="true" />
             <div className="relative">
               <p className="eyebrow eyebrow-light">{aside.eyebrow}</p>

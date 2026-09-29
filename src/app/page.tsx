@@ -120,7 +120,7 @@ export default function HomePage() {
           <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             <Link
               href="/funding-solutions/school-funding"
-              className="grain group relative flex flex-col overflow-hidden rounded-[1.25rem] bg-bronze-800 p-7 text-ivory md:col-span-2 lg:col-span-1 lg:row-span-3 lg:p-8"
+              className="grain surface-tan group relative flex flex-col overflow-hidden rounded-[1.25rem] p-7 text-ivory md:col-span-2 lg:col-span-1 lg:row-span-3 lg:p-8"
             >
               <div className="grid-lines absolute inset-0" aria-hidden="true" />
               <div className="relative flex flex-1 flex-col">
@@ -339,7 +339,7 @@ export default function HomePage() {
       </section>
 
       {/* 08 — Final CTA */}
-      <section className="grain relative overflow-hidden bg-bronze-800 py-20 text-ivory md:py-28" aria-labelledby="final-cta">
+      <section className="grain surface-tan relative overflow-hidden py-20 text-ivory md:py-28" aria-labelledby="final-cta">
         <div className="grid-lines absolute inset-0" aria-hidden="true" />
         <div className="container-x relative grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
           <div>
@@ -386,7 +386,7 @@ export default function HomePage() {
               </li>
             </ul>
           </div>
-          <div className="rounded-[1.75rem] bg-ivory p-6 text-ink-900 sm:p-9">
+          <div className="surface-light rounded-[1.75rem] bg-ivory p-6 text-ink-900 sm:p-9">
             <h3 className="heading text-3xl">Request a consultation</h3>
             <p className="mt-2 text-sm text-ink-600">Pick a time that suits you. It takes under a minute.</p>
             <div className="mt-7">

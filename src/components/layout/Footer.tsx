@@ -14,7 +14,7 @@ export function Footer() {
   const tools = mainNav.find((n) => n.href === "/resources")!.children!;
 
   return (
-    <footer className="relative bg-bronze-800 pb-24 text-ink-300 lg:pb-0">
+    <footer className="surface-tan relative pb-24 text-ink-300 lg:pb-0">
       <div className="container-x">
         {/* CTA strip */}
         <div className="flex flex-col items-start justify-between gap-6 border-b border-white/10 py-12 md:flex-row md:items-center">

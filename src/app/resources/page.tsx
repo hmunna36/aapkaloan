@@ -94,7 +94,7 @@ export default function ResourcesPage() {
         </div>
       </section>
 
-      <section id="cibil-rectification" className="grain relative scroll-mt-24 overflow-hidden bg-bronze-800 py-16 text-ivory md:py-24">
+      <section id="cibil-rectification" className="grain surface-tan relative scroll-mt-24 overflow-hidden py-16 text-ivory md:py-24">
         <div className="grid-lines absolute inset-0" aria-hidden="true" />
         <div className="container-x relative">
           <CibilRectification tone="dark" />
