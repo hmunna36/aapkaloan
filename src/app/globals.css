@@ -129,6 +129,15 @@
   .link-arrow:hover svg { transform: translate(2px, -2px); }
 
   .card { background: white; border: 1px solid var(--color-sand-200); border-radius: 1.25rem; box-shadow: var(--shadow-card); }
+  /* Secondary actions on tan: solid white so they read as clearly as the brown primary button */
+  .pill {
+    display: inline-flex; align-items: center; gap: 0.5rem; border-radius: 999px;
+    border: 1px solid rgb(111 70 28 / 0.3); background: #fff; color: var(--color-ink-900);
+    font-weight: 600; box-shadow: 0 1px 2px rgb(31 21 16 / 0.08);
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  }
+  .pill:hover { border-color: var(--color-bronze-800); box-shadow: 0 4px 12px -6px rgb(31 21 16 / 0.35); }
+  .pill-active { background: var(--color-bronze-800); border-color: var(--color-bronze-800); color: #fff; }
   .chip {
     display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.3rem 0.7rem; border-radius: 999px;
     font-size: 0.75rem; font-weight: 600; background: var(--color-sand-100); color: var(--color-ink-700);
@@ -199,7 +208,8 @@
   /* Gold buttons disappear on tan: use the logo brown instead. */
   :is(.surface-tan, .on-tan) .btn-primary { background: var(--color-bronze-800); color: #fff; }
   :is(.surface-tan, .on-tan) .btn-primary:hover { background: var(--color-bronze-700); }
-  :is(.surface-tan, .on-tan) .btn-outline-light { border-color: rgb(31 21 16 / 0.35); }
+  :is(.surface-tan, .on-tan) .btn-outline-light { background: #fff; border-color: rgb(111 70 28 / 0.3); color: var(--color-ink-900); box-shadow: 0 1px 2px rgb(31 21 16 / 0.08); }
+  :is(.surface-tan, .on-tan) .btn-outline-light:hover { border-color: var(--color-bronze-800); color: var(--color-ink-950); }
   :is(.surface-tan, .on-tan) :focus-visible { outline-color: var(--color-bronze-800); }
   .surface-tan .grid-lines {
     background-image:

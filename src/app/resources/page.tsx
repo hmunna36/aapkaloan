@@ -62,7 +62,7 @@ export default function ResourcesPage() {
             <li key={href}>
               <Link
                 href={href}
-                className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.04] px-4 py-2 text-sm font-semibold text-ink-300 transition hover:border-bronze-300 hover:text-ivory"
+                className="pill px-4 py-2 text-sm"
               >
                 <Icon className="h-4 w-4 text-bronze-300" aria-hidden="true" /> {label}
               </Link>

@@ -41,11 +41,7 @@ export default function FundingPage() {
             <li key={f.id}>
               <Link
                 href={f.id === "school-funding" ? "/funding-solutions/school-funding" : `#${f.id}`}
-                className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-semibold transition ${
-                  f.featured
-                    ? "border-bronze-400 bg-bronze-500 text-ink-950 hover:bg-bronze-400"
-                    : "border-white/15 bg-white/[0.04] text-ink-300 hover:border-bronze-300 hover:text-ivory"
-                }`}
+                className={`pill px-4 py-2 text-sm ${f.featured ? "pill-active" : ""}`}
               >
                 <FundingIcon name={f.icon} className="h-4 w-4" />
                 {f.name}

@@ -133,7 +133,7 @@ function QuickStart() {
             href={whatsappUrl("Hi AapKaLoan, I have an issue with my CIBIL report and need help.")}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full border border-wa/40 bg-wa/10 px-3.5 py-2 font-semibold text-wa-ink transition hover:bg-wa/20"
+            className="inline-flex items-center gap-2 rounded-full bg-wa px-3.5 py-2 font-semibold text-wa-ink shadow-[0_1px_2px_rgb(31_21_16/0.08)] transition hover:bg-[#3be07a]"
           >
             <WhatsAppIcon className="h-4 w-4" /> CIBIL issue? WhatsApp us
           </a>
@@ -148,7 +148,7 @@ function QuickPill({ tool, icon, children }: { tool: string; icon: React.ReactNo
     <li>
       <ToolLink
         tool={tool}
-        className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.04] px-3.5 py-2 font-semibold text-ink-300 transition hover:border-bronze-300 hover:text-ivory"
+        className="pill px-3.5 py-2"
       >
         <span className="text-bronze-300">{icon}</span>
         {children}

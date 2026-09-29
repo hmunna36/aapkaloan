@@ -97,7 +97,7 @@ export function HeroSlider({ slides, visual, footer }: { slides: HeroSlide[]; vi
                         <button
                           type="button"
                           onClick={() => open({ requirement: t.requirement, message: t.message })}
-                          className="group inline-flex items-center gap-2.5 rounded-full border border-white/15 bg-white/[0.06] py-2 pl-3 pr-4 text-left text-sm font-semibold text-ivory transition hover:border-bronze-300 hover:bg-white/10"
+                          className="pill group gap-2.5 py-2 pl-3 pr-4 text-left text-sm"
                         >
                           <MessageCircleQuestion className="h-4 w-4 shrink-0 text-bronze-300" aria-hidden="true" />
                           {t.question}
@@ -205,7 +205,7 @@ function SliderButton({ label, onClick, children }: { label: string; onClick: ()
       type="button"
       onClick={onClick}
       aria-label={label}
-      className="grid h-9 w-9 place-items-center rounded-full border border-white/15 text-ink-300 transition hover:border-bronze-300 hover:text-ivory"
+      className="pill grid h-9 w-9 place-items-center"
     >
       {children}
     </button>
