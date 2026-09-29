@@ -39,7 +39,8 @@ Carried over from the current aapkaloan.com. Please confirm they are still accur
 - [ ] Consent line on forms, and the "details are confidential" statement
 
 ## 6. Setup
-- [ ] `LEAD_WEBHOOK_URL`: the CRM or automation endpoint that should receive leads
+- [ ] **Enquiry email — must be done before launch.** Run `bash scripts/setup-lead-email.sh` with the info@aapkaloan.com
+      password; until then enquiries are only in the server log. (A CRM can be added later via `LEAD_WEBHOOK_URL`.)
 - [ ] **Credit bureau access for the live CIBIL check** — the flow is built, but needs an account with a bureau
       aggregator (or a direct bureau membership). See [docs/CIBIL-INTEGRATION.md](docs/CIBIL-INTEGRATION.md).
       Until then the site shows the CIBIL enquiry form, which is the safe default.

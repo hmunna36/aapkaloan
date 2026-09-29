@@ -48,8 +48,9 @@ instead of every product in the top menu.
 ## Leads → CRM
 
 Every form posts to `POST /api/lead` (`src/app/api/lead/route.ts`), which validates the lead (Indian mobile, consent,
-honeypot) and forwards it as JSON to **`LEAD_WEBHOOK_URL`** — any Zapier / Make / n8n webhook or CRM web-to-lead endpoint
-(Zoho, HubSpot, LeadSquared…). Without it set, leads are printed to the server log. See `.env.example`.
+honeypot) and hands it to `src/lib/lead-delivery.ts`. That **emails** it (GoDaddy SMTP, `SMTP_*` + `LEAD_EMAIL_TO`)
+and/or forwards it as JSON to **`LEAD_WEBHOOK_URL`** — any Zapier / Make / n8n webhook or CRM web-to-lead endpoint
+(Zoho, HubSpot, LeadSquared…). With neither set, leads are only printed to the server log. See `.env.example`.
 
 Each lead carries a `type` (`consultation`, `product-enquiry`, `requirement-finder`, `cibil-check`, `cibil-rectification`,
 `emi-calculator`, `school-funding`, `contact`), the page it came from, and a reference ID shown to the visitor.
@@ -95,4 +96,11 @@ traffic switch the tile URL in `src/components/branches/BranchMap.tsx` to a prov
 
 ## Deploy
 
-Deploys as-is to Vercel (or any Node host): set `LEAD_WEBHOOK_URL` and `NEXT_PUBLIC_SITE_URL`, then `npm run build`.
+Deploys as-is to Vercel (or any Node host). Before real visitors arrive, give enquiries somewhere to go —
+**without email or a webhook they are only written to the server log and the visitor is still thanked**:
+
+- **Email** (what AapKaLoan uses): run `bash scripts/setup-lead-email.sh`. It checks the `info@aapkaloan.com` login
+  against GoDaddy's mail server, then sets `SMTP_*` and `LEAD_EMAIL_TO` on both Vercel projects and redeploys.
+- **Webhook**: set `LEAD_WEBHOOK_URL` (and optionally `LEAD_WEBHOOK_SECRET`). Both can run together.
+
+Also set `NEXT_PUBLIC_SITE_URL`, then `npm run build`. See `.env.example` for every setting.
